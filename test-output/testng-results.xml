@@ -2,16 +2,16 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-11-05T13:26:22 IST" name="Default suite" finished-at="2024-11-05T13:26:32 IST" duration-ms="10182">
+  <suite started-at="2024-11-05T19:13:21 IST" name="Default suite" finished-at="2024-11-05T19:13:31 IST" duration-ms="10840">
     <groups>
     </groups>
-    <test started-at="2024-11-05T13:26:22 IST" name="Default test" finished-at="2024-11-05T13:26:32 IST" duration-ms="10182">
-      <class name="tutorialsninja.register.TC_RF_008">
-        <test-method signature="verifyRegisteringAccountByProvidingMismatchingPasswords()[pri:0, instance:tutorialsninja.register.TC_RF_008@13e344d]" started-at="2024-11-05T13:26:22 IST" name="verifyRegisteringAccountByProvidingMismatchingPasswords" finished-at="2024-11-05T13:26:32 IST" duration-ms="10116" status="PASS">
+    <test started-at="2024-11-05T19:13:21 IST" name="Default test" finished-at="2024-11-05T19:13:31 IST" duration-ms="10840">
+      <class name="tutorialsninja.register.TC_RF_010">
+        <test-method signature="verifyRegisteringAccountUsingInvalidEmail()[pri:0, instance:tutorialsninja.register.TC_RF_010@1e6a3214]" started-at="2024-11-05T19:13:21 IST" name="verifyRegisteringAccountUsingInvalidEmail" finished-at="2024-11-05T19:13:31 IST" duration-ms="10800" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verifyRegisteringAccountByProvidingMismatchingPasswords -->
-      </class> <!-- tutorialsninja.register.TC_RF_008 -->
+        </test-method> <!-- verifyRegisteringAccountUsingInvalidEmail -->
+      </class> <!-- tutorialsninja.register.TC_RF_010 -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
