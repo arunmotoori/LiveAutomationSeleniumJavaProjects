@@ -17,6 +17,7 @@ import org.testng.annotations.Test;
 
 import ru.yandex.qatools.ashot.comparison.ImageDiff;
 import ru.yandex.qatools.ashot.comparison.ImageDiffer;
+import utils.CommonUtils;
 
 public class TC_RF_010 {
 	
@@ -48,7 +49,7 @@ public class TC_RF_010 {
 		
 		Thread.sleep(3000);
 		
-		Assert.assertFalse(compareTwoScreenshots(System.getProperty("user.dir")+"\\Screenshots\\sc1Actual.png",System.getProperty("user.dir")+"\\Screenshots\\sc1Expected.png"));
+		Assert.assertFalse(CommonUtils.compareTwoScreenshots(System.getProperty("user.dir")+"\\Screenshots\\sc1Actual.png",System.getProperty("user.dir")+"\\Screenshots\\sc1Expected.png"));
 		
 		driver.findElement(By.id("input-email")).clear();
 		driver.findElement(By.id("input-email")).sendKeys("amotoori@");
@@ -61,7 +62,7 @@ public class TC_RF_010 {
 		
 		Thread.sleep(2000);
 		
-		Assert.assertFalse(compareTwoScreenshots(System.getProperty("user.dir")+"\\Screenshots\\sc2Actual.png",System.getProperty("user.dir")+"\\Screenshots\\sc2Expected.png"));
+		Assert.assertFalse(CommonUtils.compareTwoScreenshots(System.getProperty("user.dir")+"\\Screenshots\\sc2Actual.png",System.getProperty("user.dir")+"\\Screenshots\\sc2Expected.png"));
 		
 		driver.findElement(By.id("input-email")).clear();
 		driver.findElement(By.id("input-email")).sendKeys("amotoori@gmail");
@@ -84,23 +85,13 @@ public class TC_RF_010 {
 		
 		Thread.sleep(3000);
 		
-		Assert.assertFalse(compareTwoScreenshots(System.getProperty("user.dir")+"\\Screenshots\\sc3Actual.png",System.getProperty("user.dir")+"\\Screenshots\\sc3Expected.png"));
+		Assert.assertFalse(CommonUtils.compareTwoScreenshots(System.getProperty("user.dir")+"\\Screenshots\\sc3Actual.png",System.getProperty("user.dir")+"\\Screenshots\\sc3Expected.png"));
 	
 		driver.quit();
 		
 	}
 	
-	public boolean compareTwoScreenshots(String actualImagePath,String expectedImagePath) throws IOException {
-		
-		BufferedImage acutualBImg = ImageIO.read(new File(actualImagePath));
-		BufferedImage expectedBImg = ImageIO.read(new File(expectedImagePath));
-		
-		ImageDiffer imgDiffer = new ImageDiffer();
-		ImageDiff imgDifference = imgDiffer.makeDiff(expectedBImg, acutualBImg);
-		
-		return imgDifference.hasDiff();
-		
-	}
+	
 	
 
 }
