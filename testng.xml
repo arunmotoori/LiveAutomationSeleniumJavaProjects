@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite >
+<suite name="Suite">
+  <test thread-count="5" name="Test">
+    <classes>
+      <class name="tutorialsninja.register.TC_RF_009"/>
+      <class name="tutorialsninja.register.TC_RF_008"/>
+      <class name="tutorialsninja.register.TC_RF_019"/>
+      <class name="tutorialsninja.register.TC_RF_007"/>
+      <class name="tutorialsninja.register.TC_RF_018"/>
+      <class name="tutorialsninja.register.TC_RF_006"/>
+      <class name="tutorialsninja.register.TC_RF_017"/>
+      <class name="tutorialsninja.register.TC_RF_016"/>
+      <class name="tutorialsninja.register.TC_RF_005"/>
+      <class name="tutorialsninja.register.TC_RF_015"/>
+      <class name="tutorialsninja.register.TC_RF_004"/>
+      <class name="tutorialsninja.register.TC_RF_014"/>
+      <class name="tutorialsninja.register.TC_RF_003"/>
+      <class name="tutorialsninja.register.TC_RF_013"/>
+      <class name="tutorialsninja.register.TC_RF_002"/>
+      <class name="tutorialsninja.register.TC_RF_012"/>
+      <class name="tutorialsninja.register.TC_RF_001"/>
+      <class name="tutorialsninja.register.TC_RF_011"/>
+      <class name="tutorialsninja.register.TC_RF_010"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->

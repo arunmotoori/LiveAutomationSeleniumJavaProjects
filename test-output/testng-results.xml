@@ -2,16 +2,16 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-11-12T17:05:16 IST" name="Default suite" finished-at="2024-11-12T17:06:40 IST" duration-ms="83417">
+  <suite started-at="2024-11-29T18:39:57 IST" name="Default suite" finished-at="2024-11-29T18:40:29 IST" duration-ms="31502">
     <groups>
     </groups>
-    <test started-at="2024-11-12T17:05:16 IST" name="Default test" finished-at="2024-11-12T17:06:40 IST" duration-ms="83417">
-      <class name="tutorialsninja.register.TC_RF_018">
-        <test-method signature="verifyRegisteringAccountFieldsHeightWidthAligment()[pri:0, instance:tutorialsninja.register.TC_RF_018@738dc9b]" started-at="2024-11-12T17:05:17 IST" name="verifyRegisteringAccountFieldsHeightWidthAligment" finished-at="2024-11-12T17:06:40 IST" duration-ms="83336" status="PASS">
+    <test started-at="2024-11-29T18:39:57 IST" name="Default test" finished-at="2024-11-29T18:40:29 IST" duration-ms="31502">
+      <class name="tutorialsninja.register.TC_RF_023">
+        <test-method signature="verifyWorkingOfEveryLinkOnRegisterAccountPage()[pri:0, instance:tutorialsninja.register.TC_RF_023@20140db9]" started-at="2024-11-29T18:39:57 IST" name="verifyWorkingOfEveryLinkOnRegisterAccountPage" finished-at="2024-11-29T18:40:29 IST" duration-ms="31453" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verifyRegisteringAccountFieldsHeightWidthAligment -->
-      </class> <!-- tutorialsninja.register.TC_RF_018 -->
+        </test-method> <!-- verifyWorkingOfEveryLinkOnRegisterAccountPage -->
+      </class> <!-- tutorialsninja.register.TC_RF_023 -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

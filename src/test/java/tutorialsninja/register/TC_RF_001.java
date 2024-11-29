@@ -12,7 +12,7 @@ import utils.CommonUtils;
 
 public class TC_RF_001 {
 
-	@Test
+	@Test(priority=1)
 	public void verifyRegisteringWithMandatoryFields() {
 		
 		WebDriver driver = new ChromeDriver();
