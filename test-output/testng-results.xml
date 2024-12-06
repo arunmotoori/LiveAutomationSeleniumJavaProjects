@@ -1,17 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-12-06T15:52:10 IST" name="Default suite" finished-at="2024-12-06T15:52:15 IST" duration-ms="5585">
+  <suite started-at="2024-12-06T18:59:16 IST" name="Default suite" finished-at="2024-12-06T18:59:50 IST" duration-ms="33852">
     <groups>
     </groups>
-    <test started-at="2024-12-06T15:52:10 IST" name="Default test" finished-at="2024-12-06T15:52:15 IST" duration-ms="5585">
-      <class name="tutorialsninja.register.TC_RF_026">
-        <test-method signature="verifyUIOfRegisterAccountPage()[pri:0, instance:tutorialsninja.register.TC_RF_026@1e6a3214]" started-at="2024-12-06T15:52:10 IST" name="verifyUIOfRegisterAccountPage" finished-at="2024-12-06T15:52:15 IST" duration-ms="5541" status="PASS">
+    <test started-at="2024-12-06T18:59:16 IST" name="Default test" finished-at="2024-12-06T18:59:50 IST" duration-ms="33852">
+      <class name="tutorialsninja.register.TC_RF_027">
+        <test-method signature="verifyRegisteringAccountInDifferentTestEnvironments(java.lang.String)[pri:0, instance:tutorialsninja.register.TC_RF_027@6d4d66d2]" started-at="2024-12-06T18:59:16 IST" name="verifyRegisteringAccountInDifferentTestEnvironments" data-provider="environmentsSupplier" finished-at="2024-12-06T18:59:24 IST" duration-ms="7408" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verifyUIOfRegisterAccountPage -->
-      </class> <!-- tutorialsninja.register.TC_RF_026 -->
+        </test-method> <!-- verifyRegisteringAccountInDifferentTestEnvironments -->
+        <test-method signature="verifyRegisteringAccountInDifferentTestEnvironments(java.lang.String)[pri:0, instance:tutorialsninja.register.TC_RF_027@6d4d66d2]" started-at="2024-12-06T18:59:24 IST" name="verifyRegisteringAccountInDifferentTestEnvironments" data-provider="environmentsSupplier" finished-at="2024-12-06T18:59:35 IST" duration-ms="10981" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[firefox]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyRegisteringAccountInDifferentTestEnvironments -->
+        <test-method signature="verifyRegisteringAccountInDifferentTestEnvironments(java.lang.String)[pri:0, instance:tutorialsninja.register.TC_RF_027@6d4d66d2]" started-at="2024-12-06T18:59:35 IST" name="verifyRegisteringAccountInDifferentTestEnvironments" data-provider="environmentsSupplier" finished-at="2024-12-06T18:59:50 IST" duration-ms="15396" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[edge]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyRegisteringAccountInDifferentTestEnvironments -->
+      </class> <!-- tutorialsninja.register.TC_RF_027 -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
