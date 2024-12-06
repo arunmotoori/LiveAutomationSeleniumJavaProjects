@@ -33,10 +33,10 @@ public class TC_RF_024 {
 		driver.findElement(By.xpath("//input[@value='Continue']")).click();
 		
 		String expectedWarning = "Password confirmation does not match password!";
-		
 		Assert.assertEquals(driver.findElement(By.xpath("//input[@id='input-confirm']/following-sibling::div")).getText(), expectedWarning);
 		
 		driver.quit();
+		
 	}
 
 }
