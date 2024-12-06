@@ -2,16 +2,16 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-12-06T14:11:20 IST" name="Default suite" finished-at="2024-12-06T14:11:33 IST" duration-ms="13579">
+  <suite started-at="2024-12-06T15:52:10 IST" name="Default suite" finished-at="2024-12-06T15:52:15 IST" duration-ms="5585">
     <groups>
     </groups>
-    <test started-at="2024-12-06T14:11:20 IST" name="Default test" finished-at="2024-12-06T14:11:33 IST" duration-ms="13579">
-      <class name="tutorialsninja.register.TC_RF_025">
-        <test-method signature="verifyBreadcrumbURLHeadingTitleOfRegisterAccountPage()[pri:0, instance:tutorialsninja.register.TC_RF_025@20140db9]" started-at="2024-12-06T14:11:20 IST" name="verifyBreadcrumbURLHeadingTitleOfRegisterAccountPage" finished-at="2024-12-06T14:11:33 IST" duration-ms="13527" status="PASS">
+    <test started-at="2024-12-06T15:52:10 IST" name="Default test" finished-at="2024-12-06T15:52:15 IST" duration-ms="5585">
+      <class name="tutorialsninja.register.TC_RF_026">
+        <test-method signature="verifyUIOfRegisterAccountPage()[pri:0, instance:tutorialsninja.register.TC_RF_026@1e6a3214]" started-at="2024-12-06T15:52:10 IST" name="verifyUIOfRegisterAccountPage" finished-at="2024-12-06T15:52:15 IST" duration-ms="5541" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verifyBreadcrumbURLHeadingTitleOfRegisterAccountPage -->
-      </class> <!-- tutorialsninja.register.TC_RF_025 -->
+        </test-method> <!-- verifyUIOfRegisterAccountPage -->
+      </class> <!-- tutorialsninja.register.TC_RF_026 -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
