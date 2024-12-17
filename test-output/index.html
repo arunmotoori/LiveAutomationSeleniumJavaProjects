@@ -50,7 +50,7 @@
               <ul>
                 <li>
                   <a href="#" panel-name="test-xml-Default_suite" class="navigator-link ">
-                    <span>C:\Users\arunm\AppData\Local\Temp\testng-eclipse--1898519608\testng-customsuite.xml</span>
+                    <span>C:\Users\arunm\AppData\Local\Temp\testng-eclipse--1948348303\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -92,7 +92,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">3 methods,   3 passed</span>
+                    <span class="method-stats">1 method,   1 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -103,17 +103,7 @@
                     <div class="method-list-content passed suite-Default_suite">
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="tutorialsninja.register.TC_RF_027" class="method navigator-link" hash-for-method="verifyRegisteringAccountInDifferentTestEnvironments(edge)">verifyRegisteringAccountInDifferentTestEnvironments(edge)</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="tutorialsninja.register.TC_RF_027" class="method navigator-link" hash-for-method="verifyRegisteringAccountInDifferentTestEnvironments(chrome)">verifyRegisteringAccountInDifferentTestEnvironments(chrome)</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="tutorialsninja.register.TC_RF_027" class="method navigator-link" hash-for-method="verifyRegisteringAccountInDifferentTestEnvironments(firefox)">verifyRegisteringAccountInDifferentTestEnvironments(firefox)</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="tutorialsninja.tests.Login" class="method navigator-link" hash-for-method="verifyNavigatingToDifferentPagesFromLoginPage">verifyNavigatingToDifferentPagesFromLoginPage</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Default_suite -->
@@ -131,31 +121,14 @@
           <div class="suite-Default_suite-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
-              <span class="class-name">tutorialsninja.register.TC_RF_027</span>
+              <span class="class-name">tutorialsninja.tests.Login</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="verifyRegisteringAccountInDifferentTestEnvironments(edge)">
-                  </a> <!-- verifyRegisteringAccountInDifferentTestEnvironments(edge) -->
-                  <span class="method-name">verifyRegisteringAccountInDifferentTestEnvironments</span>
-                  <span class="parameters">(edge)</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="verifyRegisteringAccountInDifferentTestEnvironments(chrome)">
-                  </a> <!-- verifyRegisteringAccountInDifferentTestEnvironments(chrome) -->
-                  <span class="method-name">verifyRegisteringAccountInDifferentTestEnvironments</span>
-                  <span class="parameters">(chrome)</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="verifyRegisteringAccountInDifferentTestEnvironments(firefox)">
-                  </a> <!-- verifyRegisteringAccountInDifferentTestEnvironments(firefox) -->
-                  <span class="method-name">verifyRegisteringAccountInDifferentTestEnvironments</span>
-                  <span class="parameters">(firefox)</span>
+                  <a name="verifyNavigatingToDifferentPagesFromLoginPage">
+                  </a> <!-- verifyNavigatingToDifferentPagesFromLoginPage -->
+                  <span class="method-name">verifyNavigatingToDifferentPagesFromLoginPage</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -163,7 +136,7 @@
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\arunm\AppData\Local\Temp\testng-eclipse--1898519608\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\arunm\AppData\Local\Temp\testng-eclipse--1948348303\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -172,7 +145,11 @@
 &lt;suite name=&quot;Default suite&quot; guice-stage=&quot;DEVELOPMENT&quot;&gt;
   &lt;test thread-count=&quot;5&quot; name=&quot;Default test&quot; verbose=&quot;2&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;tutorialsninja.register.TC_RF_027&quot;/&gt;
+      &lt;class name=&quot;tutorialsninja.tests.Login&quot;&gt;
+        &lt;methods&gt;
+          &lt;include name=&quot;verifyNavigatingToDifferentPagesFromLoginPage&quot;/&gt;
+        &lt;/methods&gt;
+      &lt;/class&gt; &lt;!-- tutorialsninja.tests.Login --&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Default test --&gt;
 &lt;/suite&gt; &lt;!-- Default suite --&gt;
@@ -212,24 +189,16 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(3);
+data.addRows(1);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'verifyRegisteringAccountInDifferentTestEnvironments')
-data.setCell(0, 2, 'tutorialsninja.register.TC_RF_027')
-data.setCell(0, 3, 15396);
-data.setCell(1, 0, 1)
-data.setCell(1, 1, 'verifyRegisteringAccountInDifferentTestEnvironments')
-data.setCell(1, 2, 'tutorialsninja.register.TC_RF_027')
-data.setCell(1, 3, 10981);
-data.setCell(2, 0, 2)
-data.setCell(2, 1, 'verifyRegisteringAccountInDifferentTestEnvironments')
-data.setCell(2, 2, 'tutorialsninja.register.TC_RF_027')
-data.setCell(2, 3, 7408);
+data.setCell(0, 1, 'verifyNavigatingToDifferentPagesFromLoginPage')
+data.setCell(0, 2, 'tutorialsninja.tests.Login')
+data.setCell(0, 3, 29474);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 33 seconds</span>
+              <span class="suite-total-time">Total running time: 29 seconds</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -244,9 +213,46 @@ return data;
         </div> <!-- panel -->
         <div panel-name="ignored-methods-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">0 ignored methods</span>
+            <span class="header-content">16 ignored methods</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
+            <div class="ignored-class-div">
+              <span class="ignored-class-name">tutorialsninja.tests.Login</span>
+              <div class="ignored-methods-div">
+                <span class="ignored-method-name">verifyLoggingIntoApplicationAfterChaningPassword</span>
+                <br/>
+                <span class="ignored-method-name">verifyPasswordIsStoredInHTMLCodeOfThePage</span>
+                <br/>
+                <span class="ignored-method-name">verifyBrowserBackAfterLoggingOut</span>
+                <br/>
+                <span class="ignored-method-name">verifyLoginWithInactiveCredentials</span>
+                <br/>
+                <span class="ignored-method-name">verifyLoginWithValidEmailAndInvalidPassword</span>
+                <br/>
+                <span class="ignored-method-name">verifyLoginFieldsPlaceholders</span>
+                <br/>
+                <span class="ignored-method-name">verifyLoginWithValidCredentials</span>
+                <br/>
+                <span class="ignored-method-name">verifyForgottendPasswordLinkOnLoginPage</span>
+                <br/>
+                <span class="ignored-method-name">verifyTextEnteredIntoPasswordFieldIsToggledToHideItsVisibility</span>
+                <br/>
+                <span class="ignored-method-name">verifyLoginWithInvalidEmailAndValidPassword</span>
+                <br/>
+                <span class="ignored-method-name">verifyLoggingIntoTheApplicationUsingKeyboardKeys</span>
+                <br/>
+                <span class="ignored-method-name">verifyLoginWithInvalidCredentials</span>
+                <br/>
+                <span class="ignored-method-name">verifyNumberOfUnsuccessfulLoginAttemps</span>
+                <br/>
+                <span class="ignored-method-name">verifyBrowserBackAfterLogin</span>
+                <br/>
+                <span class="ignored-method-name">verifyCopyingOfTextEnteredIntoPasswordField</span>
+                <br/>
+                <span class="ignored-method-name">verifyLoginWithoutCredentials</span>
+                <br/>
+              </div> <!-- ignored-methods-div -->
+            </div> <!-- ignored-class-div -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
         <div panel-name="chronological-Default_suite" class="panel">
@@ -255,19 +261,19 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">tutorialsninja.register.TC_RF_027</div> <!-- chronological-class-name -->
-              <div class="test-method">
-                <span class="method-name">verifyRegisteringAccountInDifferentTestEnvironments(chrome)</span>
+              <div class="chronological-class-name">tutorialsninja.tests.Login</div> <!-- chronological-class-name -->
+              <div class="configuration-method before">
+                <span class="method-name">setup</span>
                 <span class="method-start">0 ms</span>
-              </div> <!-- test-method -->
+              </div> <!-- configuration-method before -->
               <div class="test-method">
-                <span class="method-name">verifyRegisteringAccountInDifferentTestEnvironments(firefox)</span>
-                <span class="method-start">7413 ms</span>
+                <span class="method-name">verifyNavigatingToDifferentPagesFromLoginPage</span>
+                <span class="method-start">4981 ms</span>
               </div> <!-- test-method -->
-              <div class="test-method">
-                <span class="method-name">verifyRegisteringAccountInDifferentTestEnvironments(edge)</span>
-                <span class="method-start">18395 ms</span>
-              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">34464 ms</span>
+              </div> <!-- configuration-method after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
       </div> <!-- main-panel-root -->

@@ -3,44 +3,55 @@
 <suite name="Failed suite [Suite]">
   <test thread-count="5" name="Test(failed)">
     <classes>
+      <class name="tutorialsninja.register.TC_RF_010">
+        <methods>
+          <include name="verifyRegisteringAccountWithInvalidEmails"/>
+          <include name="setup"/>
+          <include name="teardown"/>
+        </methods>
+      </class> <!-- tutorialsninja.register.TC_RF_010 -->
+      <class name="tutorialsninja.register.TC_RF_019">
+        <methods>
+          <include name="setup"/>
+          <include name="tearDown"/>
+          <include name="verifyLeadingAndTrailingSpacesWhileRegisteringAccount"/>
+        </methods>
+      </class> <!-- tutorialsninja.register.TC_RF_019 -->
+      <class name="tutorialsninja.register.TC_RF_011">
+        <methods>
+          <include name="verifyRegisterAccountByProvidingInvalidTelephoneNumber"/>
+          <include name="setup"/>
+          <include name="teardown"/>
+        </methods>
+      </class> <!-- tutorialsninja.register.TC_RF_011 -->
       <class name="tutorialsninja.register.TC_RF_017">
         <methods>
           <include name="teardown"/>
+          <include name="setup"/>
           <include name="verifyRegisteringAccountAndCheckingPasswordComplexityStandards" invocation-numbers="0 1 2 3 4"/>
         </methods>
       </class> <!-- tutorialsninja.register.TC_RF_017 -->
       <class name="tutorialsninja.register.TC_RF_015">
         <methods>
+          <include name="teardown"/>
+          <include name="setup"/>
           <include name="verifyDataTestingOfRegisteringAccount"/>
         </methods>
       </class> <!-- tutorialsninja.register.TC_RF_015 -->
-      <class name="tutorialsninja.register.TC_RF_018">
-        <methods>
-          <include name="verifyRegisteringAccountFieldsHeightWidthAligment"/>
-        </methods>
-      </class> <!-- tutorialsninja.register.TC_RF_018 -->
-      <class name="tutorialsninja.register.TC_RF_010">
-        <methods>
-          <include name="verifyRegisteringAccountUsingInvalidEmail"/>
-        </methods>
-      </class> <!-- tutorialsninja.register.TC_RF_010 -->
       <class name="tutorialsninja.register.TC_RF_014">
         <methods>
           <include name="verifyMandatoryFieldsSymbolAndColorInRegisterAccountPage"/>
           <include name="teardown"/>
+          <include name="setup"/>
         </methods>
       </class> <!-- tutorialsninja.register.TC_RF_014 -->
-      <class name="tutorialsninja.register.TC_RF_002">
+      <class name="tutorialsninja.register.TC_RF_018">
         <methods>
-          <include name="verifyConfirmationEmail"/>
-        </methods>
-      </class> <!-- tutorialsninja.register.TC_RF_002 -->
-      <class name="tutorialsninja.register.TC_RF_011">
-        <methods>
-          <include name="verifyRegisterAccountByProvidingInvalidTelephoneNumber"/>
+          <include name="setup"/>
+          <include name="verifyRegisteringAccountFieldsHeightWidthAligment"/>
           <include name="teardown"/>
         </methods>
-      </class> <!-- tutorialsninja.register.TC_RF_011 -->
+      </class> <!-- tutorialsninja.register.TC_RF_018 -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

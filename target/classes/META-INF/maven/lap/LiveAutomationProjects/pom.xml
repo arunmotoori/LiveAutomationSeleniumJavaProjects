@@ -31,7 +31,7 @@
 	    <groupId>org.testng</groupId>
 	    <artifactId>testng</artifactId>
 	    <version>7.10.2</version>
-	    <scope>test</scope>
+	    <scope>compile</scope>
 	</dependency>
 	<!-- https://mvnrepository.com/artifact/com.sun.mail/javax.mail -->
 	<dependency>
