@@ -5,11 +5,12 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class GiftCertificatePage {
-	
-	WebDriver driver;
+import pages.root.RootPage;
+
+public class GiftCertificatePage extends RootPage{
 	
 	public GiftCertificatePage(WebDriver driver) {
+		super(driver);
 		this.driver = driver;
 		PageFactory.initElements(driver,this);
 	}

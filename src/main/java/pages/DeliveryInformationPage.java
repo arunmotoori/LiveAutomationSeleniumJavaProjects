@@ -5,11 +5,12 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class DeliveryInformationPage {
-	
-	WebDriver driver;
+import pages.root.RootPage;
+
+public class DeliveryInformationPage extends RootPage{
 	
 	public DeliveryInformationPage(WebDriver driver) {
+		super(driver);
 		this.driver = driver;
 		PageFactory.initElements(driver,this);
 	}

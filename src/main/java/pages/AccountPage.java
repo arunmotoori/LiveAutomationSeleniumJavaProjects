@@ -5,11 +5,12 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class AccountPage {
-	
-	WebDriver driver;
+import pages.root.RootPage;
+
+public class AccountPage extends RootPage{
 	
 	public AccountPage(WebDriver driver) {
+		super(driver);
 		this.driver = driver;
 		PageFactory.initElements(driver,this);
 	}
@@ -28,7 +29,7 @@ public class AccountPage {
 	
 	@FindBy(xpath="//div[@class='alert alert-success alert-dismissible']")
 	private WebElement message;
-
+	
 	public String getMessage() {
 		return message.getText();
 	}

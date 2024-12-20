@@ -5,12 +5,12 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class ChangePasswordPage {
-	
-	WebDriver driver;
-	
+import pages.root.RootPage;
+
+public class ChangePasswordPage extends RootPage{
+
 	public ChangePasswordPage(WebDriver driver) {
-		
+		super(driver);
 		this.driver = driver;
 		PageFactory.initElements(driver,this);
 		

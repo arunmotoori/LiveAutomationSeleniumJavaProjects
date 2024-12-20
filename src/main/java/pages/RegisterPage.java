@@ -12,11 +12,12 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class RegisterPage {
+import pages.root.RootPage;
 
-	WebDriver driver;
+public class RegisterPage extends RootPage{
 
 	public RegisterPage(WebDriver driver) {
+		super(driver);
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
@@ -123,10 +124,7 @@ public class RegisterPage {
 	
 	@FindBy(xpath="//div[@id='content']/h1")
 	private WebElement registerPageHeading;
-	
-	public WebDriver getDriverFromRegisterPage() {
-		return driver;
-	}
+
 	
 	public String getRegisterPageHeading() {
 		return registerPageHeading.getText();

@@ -21,7 +21,7 @@ import utils.CommonUtils;
 
 public class Login extends Base {
 
-	WebDriver driver;
+	public WebDriver driver;
 	Properties prop;
 
 	@BeforeMethod
@@ -37,9 +37,7 @@ public class Login extends Base {
 
 	@AfterMethod
 	public void tearDown() {
-		if (driver != null) {
-			driver.quit();
-		}
+		closeBrowser(driver);
 	}
 
 	@Test(priority = 1)
@@ -107,7 +105,7 @@ public class Login extends Base {
 	}
 
 	@Test(priority = 7)
-	public void verifyLoggingIntoTheApplicationUsingKeyboardKeys() {
+	public void verifyLoggingIntoTheApplicationUsingKeyboardKeys() throws InterruptedException {
 
 		driver = pressKeyMultipleTimes(driver, Keys.TAB, 23);
 		driver = enterDetailsIntoLoginPageFields(driver);
@@ -505,6 +503,70 @@ public class Login extends Base {
 		footerOptions = new FooterOptions(driver);
 		loginPage = footerOptions.clickOnNewsletterFooterOption();
 		Assert.assertTrue(loginPage.didWeNaviateToLoginPage());
+
+	}
+
+	@Test(priority = 18)
+	public void verifyDifferentWaysOfNavigatingToLoginPage() {
+
+		registerPage = loginPage.clickOnContinueButton();
+		loginPage = registerPage.clickOnLoginPageLink();
+		Assert.assertTrue(loginPage.didWeNaviateToLoginPage());
+		driver = loginPage.getDriver();
+		rightColumnOptions = new RightColumnOptions(driver);
+		loginPage = rightColumnOptions.clickOnRightSideLoginOption();
+		Assert.assertTrue(loginPage.didWeNaviateToLoginPage());
+		driver = loginPage.getDriver();
+		headerOptions = new HeaderOptions(driver);
+		headerOptions.clickOnMyAccountDropMenu();
+		loginPage = headerOptions.selectLoginOption();
+		Assert.assertTrue(loginPage.didWeNaviateToLoginPage());
+
+	}
+
+	@Test(priority = 19)
+	public void verifyBreadCrumbPageHeadingTitleAndPageURLOfLoginPage() {
+
+		Assert.assertTrue(loginPage.didWeNaviateToLoginPage());
+		Assert.assertEquals(getPageTitle(driver), prop.getProperty("loginPageTitle"));
+		Assert.assertEquals(getPageURL(driver), prop.getProperty("loginPageURL"));
+		Assert.assertEquals(loginPage.getPageHeadingOne(), prop.getProperty("registerPageHeadingOne"));
+		Assert.assertEquals(loginPage.getPageHeadingTwo(), prop.getProperty("registerPageHeadingTwo"));
+
+	}
+
+	@Test(priority = 20)
+	public void verifyUIOfLoginPage() {
+
+		if (prop.getProperty("browserName").equals("chrome")) {
+			CommonUtils.takeScreenshot(driver, "\\Screenshots\\actualLoginPageUI.png");
+			Assert.assertFalse(CommonUtils.compareTwoScreenshots(
+					System.getProperty("user.dir") + "\\Screenshots\\actualLoginPageUI.png",
+					System.getProperty("user.dir") + "\\Screenshots\\expectedLoginPageUI.png"));
+
+		}else if(prop.getProperty("browserName").equals("edge")) {
+			CommonUtils.takeScreenshot(driver, "\\Screenshots\\actualEdgeLoginPageUI.png");
+			Assert.assertFalse(CommonUtils.compareTwoScreenshots(
+					System.getProperty("user.dir") + "\\Screenshots\\actualEdgeLoginPageUI.png",
+					System.getProperty("user.dir") + "\\Screenshots\\expectedEdgeLoginPageUI.png"));
+			
+		}else if(prop.getProperty("browserName").equals("firefox")) {
+			CommonUtils.takeScreenshot(driver, "\\Screenshots\\actualFirefoxLoginPageUI.png");
+			Assert.assertFalse(CommonUtils.compareTwoScreenshots(
+					System.getProperty("user.dir") + "\\Screenshots\\actualFirefoxLoginPageUI.png",
+					System.getProperty("user.dir") + "\\Screenshots\\expectedFirefoxLoginPageUI.png"));
+			
+		}
+	}
+
+	@Test(priority = 21)
+	public void verifyLoginFunctionalityInAllEnvironments() {
+
+		loginPage.enterEmail(prop.getProperty("existingEmail"));
+		loginPage.enterPassword(prop.getProperty("validPassword"));
+		accountPage = loginPage.clickOnLoginButton();
+		Assert.assertTrue(accountPage.isUserLoggedIn());
+		Assert.assertTrue(accountPage.didWenavigateToAccountPage());
 
 	}
 

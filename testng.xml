@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite>
 <suite name="Suite">
+  <listeners>
+  	<listener class-name="listeners.MyListeners" />
+  </listeners>
   <test thread-count="5" name="Test">
     <classes>
       <class name="tutorialsninja.tests.Register"/>
+      <class name="tutorialsninja.tests.Login"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

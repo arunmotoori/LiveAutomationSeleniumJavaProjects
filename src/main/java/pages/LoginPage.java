@@ -7,11 +7,12 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class LoginPage {
-	
-	WebDriver driver;
+import pages.root.RootPage;
+
+public class LoginPage extends RootPage{
 	
 	public LoginPage(WebDriver driver) {
+		super(driver);
 		this.driver = driver;
 		PageFactory.initElements(driver,this);
 	}
@@ -43,13 +44,23 @@ public class LoginPage {
 	@FindBy(xpath="//div[@class='alert alert-danger alert-dismissible']")
 	private WebElement warningMessage;
 	
+	@FindBy(xpath="(//div[@id='content']//h2)[1]")
+	private WebElement headingOne;
+	
+	@FindBy(xpath="(//div[@id='content']//h2)[2]")
+	private WebElement headingTwo;
+	
+	public String getPageHeadingOne() {
+		return headingOne.getText();
+	}
+	
+	public String getPageHeadingTwo() {
+		return headingTwo.getText();
+	}
+
 	public LoginPage clickOnLoginBreadcrumb() {
 		loginBreadcrumb.click();
 		return new LoginPage(driver);
-	}
-	
-	public WebDriver getDriver() {
-		return driver;
 	}
 	
 	public void clearPassword() {

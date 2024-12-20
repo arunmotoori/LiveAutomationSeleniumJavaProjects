@@ -1,57 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Failed suite [Suite]">
+  <listeners>
+    <listener class-name="listeners.MyListeners"/>
+  </listeners>
   <test thread-count="5" name="Test(failed)">
     <classes>
-      <class name="tutorialsninja.register.TC_RF_010">
+      <class name="tutorialsninja.tests.Login">
         <methods>
-          <include name="verifyRegisteringAccountWithInvalidEmails"/>
-          <include name="setup"/>
-          <include name="teardown"/>
-        </methods>
-      </class> <!-- tutorialsninja.register.TC_RF_010 -->
-      <class name="tutorialsninja.register.TC_RF_019">
-        <methods>
-          <include name="setup"/>
+          <include name="verifyPasswordIsStoredInHTMLCodeOfThePage"/>
           <include name="tearDown"/>
-          <include name="verifyLeadingAndTrailingSpacesWhileRegisteringAccount"/>
-        </methods>
-      </class> <!-- tutorialsninja.register.TC_RF_019 -->
-      <class name="tutorialsninja.register.TC_RF_011">
-        <methods>
-          <include name="verifyRegisterAccountByProvidingInvalidTelephoneNumber"/>
-          <include name="setup"/>
-          <include name="teardown"/>
-        </methods>
-      </class> <!-- tutorialsninja.register.TC_RF_011 -->
-      <class name="tutorialsninja.register.TC_RF_017">
-        <methods>
-          <include name="teardown"/>
-          <include name="setup"/>
-          <include name="verifyRegisteringAccountAndCheckingPasswordComplexityStandards" invocation-numbers="0 1 2 3 4"/>
-        </methods>
-      </class> <!-- tutorialsninja.register.TC_RF_017 -->
-      <class name="tutorialsninja.register.TC_RF_015">
-        <methods>
-          <include name="teardown"/>
-          <include name="setup"/>
-          <include name="verifyDataTestingOfRegisteringAccount"/>
-        </methods>
-      </class> <!-- tutorialsninja.register.TC_RF_015 -->
-      <class name="tutorialsninja.register.TC_RF_014">
-        <methods>
-          <include name="verifyMandatoryFieldsSymbolAndColorInRegisterAccountPage"/>
-          <include name="teardown"/>
           <include name="setup"/>
         </methods>
-      </class> <!-- tutorialsninja.register.TC_RF_014 -->
-      <class name="tutorialsninja.register.TC_RF_018">
+      </class> <!-- tutorialsninja.tests.Login -->
+      <class name="tutorialsninja.tests.Register">
         <methods>
           <include name="setup"/>
+          <include name="verifyConfirmationEmail"/>
           <include name="verifyRegisteringAccountFieldsHeightWidthAligment"/>
           <include name="teardown"/>
+          <include name="verifyDataTestingOfRegisteringAccount"/>
+          <include name="verifyRegisteringAccountAndCheckingPasswordComplexityStandards" invocation-numbers="0 1 2 3 4"/>
+          <include name="verifyMandatoryFieldsSymbolAndColorInRegisterAccountPage"/>
+          <include name="verifyRegisterAccountByProvidingInvalidTelephoneNumber"/>
         </methods>
-      </class> <!-- tutorialsninja.register.TC_RF_018 -->
+      </class> <!-- tutorialsninja.tests.Register -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

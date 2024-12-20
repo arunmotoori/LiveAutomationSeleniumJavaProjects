@@ -39,11 +39,13 @@ import pages.SiteMapPage;
 import pages.SpecialOffersPage;
 import pages.TermsAndConditionsPage;
 import utils.CommonUtils;
+import utils.MyXLSReader;
 
 public class Base {
 	
 	WebDriver driver;
 	Properties prop;
+	public MyXLSReader myXLSReader;
 	
 	public LandingPage landingPage;
 	public RegisterPage registerPage;
@@ -145,7 +147,7 @@ public class Base {
 		actions.sendKeys(prop.getProperty("existingEmail")).pause(Duration.ofSeconds(1))
 		.sendKeys(Keys.TAB).pause(Duration.ofSeconds(1)).sendKeys(prop.getProperty("validPassword"))
 		.pause(Duration.ofSeconds(1)).sendKeys(Keys.TAB).sendKeys(Keys.TAB).pause(Duration.ofSeconds(1))
-		.sendKeys(Keys.ENTER).build().perform();
+		.sendKeys(Keys.ENTER).pause(Duration.ofSeconds(2)).build().perform();
 		
 		return driver;
 		
@@ -157,6 +159,16 @@ public class Base {
 	
 	public String getPageURL(WebDriver driver) {
 		return driver.getCurrentUrl();
+	}
+	
+	public String getPageTitle(WebDriver driver) {
+		return driver.getTitle();
+	}
+	
+	public void closeBrowser(WebDriver driver) {
+		if(driver!=null) {
+			driver.quit();
+		}
 	}
 
 }

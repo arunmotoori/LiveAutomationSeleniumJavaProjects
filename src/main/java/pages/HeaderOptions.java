@@ -5,11 +5,12 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class HeaderOptions {
-	
-	WebDriver driver;
+import pages.root.RootPage;
+
+public class HeaderOptions extends RootPage{
 	
 	public HeaderOptions(WebDriver driver) {
+		super(driver);
 		this.driver = driver;
 		PageFactory.initElements(driver,this);
 	}
@@ -37,6 +38,33 @@ public class HeaderOptions {
 	
 	@FindBy(xpath="//ul[@class='breadcrumb']//i[@class='fa fa-home']")
 	private WebElement homeBreadcrumb;
+	
+	@FindBy(xpath="//span[text()='My Account']")
+	private WebElement myAccountDropMenu;
+	
+	@FindBy(linkText="Login")
+	private WebElement loginOption;
+	
+	@FindBy(linkText="Logout")
+	private WebElement logoutOption;
+	
+	public boolean isLoginOptionAvailable() {
+		return loginOption.isDisplayed();
+	}
+	
+	public AccountLogoutPage selectLogoutOption() {
+		logoutOption.click();
+		return new AccountLogoutPage(driver);
+	}
+	
+	public LoginPage selectLoginOption() {
+		loginOption.click();
+		return new LoginPage(driver);
+	}
+	
+	public void clickOnMyAccountDropMenu() {
+		myAccountDropMenu.click();
+	}
 	
 	public ContactUsPage selectPhoneIconOption() {
 		phoneIconOption.click();
