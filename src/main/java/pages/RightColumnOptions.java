@@ -3,12 +3,16 @@ package pages;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.*;
 import pages.root.RootPage;
+import utils.ElementUtils;
 
 public class RightColumnOptions extends RootPage{
+	
+	ElementUtils elementUtils;
 	
 	public RightColumnOptions(WebDriver driver) {
 		super(driver);
 		this.driver = driver;
+		elementUtils = new ElementUtils(driver);
 		PageFactory.initElements(driver,this);
 	}
 	
@@ -55,76 +59,76 @@ public class RightColumnOptions extends RootPage{
 	private WebElement logoutOption;
 	
 	public boolean isLogoutRightColumnOptionAvailable() {
-		return isElementDisplayed(logoutOption);
+		return elementUtils.isElementDisplayed(logoutOption);
 	}
 	
 	public AccountLogoutPage clickOnRightSideLogoutOption() {
-		logoutOption.click();
+		elementUtils.clickOnElement(logoutOption);
 		return new AccountLogoutPage(driver);
 	}
 	
 	public LoginPage clickOnRightSideNewsletterOption() {
-		rightSideNewsletterOption.click();
+		elementUtils.clickOnElement(rightSideNewsletterOption);
 		return new LoginPage(driver);
 	}
 	
 	public LoginPage clickOnRightSideTransactionsOption() {
-		rightSideTransactionsOption.click();
+		elementUtils.clickOnElement(rightSideTransactionsOption);
 		return new LoginPage(driver);
 	}
 	
 	public LoginPage clickOnRightSideReturnsOption() {
-		rightSideReturnsOption.click();
+		elementUtils.clickOnElement(rightSideReturnsOption);
 		return new LoginPage(driver);
 	}
 	
 	public LoginPage clickOnRightSideRewardPointsOption() {
-		rightSideRewardPointsOption.click();
+		elementUtils.clickOnElement(rightSideRewardPointsOption);
 		return new LoginPage(driver);
 	}
 	
 	public LoginPage clickOnRightSideRecurringPaymentsOption() {
-		rightSideRecurringPaymentsOption.click();
+		elementUtils.clickOnElement(rightSideRecurringPaymentsOption);
 		return new LoginPage(driver);
 	}
 	
 	public LoginPage clickOnRightSideDownloadsOption() {
-		rightSideDownloadsOption.click();
+		elementUtils.clickOnElement(rightSideDownloadsOption);
 		return new LoginPage(driver);
 	}
 	
 	public LoginPage clickOnRightSideOrderHistoryOption() {
-		rightSideOrderHistoryOption.click();
+		elementUtils.clickOnElement(rightSideOrderHistoryOption);
 		return new LoginPage(driver);
 	}
 	
 	public LoginPage clickOnRightSideWishListOption() {
-		rightSideWishListOption.click();
+		elementUtils.clickOnElement(rightSideWishListOption);
 		return new LoginPage(driver);
 	}
 	
 	public LoginPage clickOnRightSideAddressBookOption() {
-		rightSideAddressBookOption.click();
+		elementUtils.clickOnElement(rightSideAddressBookOption);
 		return new LoginPage(driver);
 	}
 	
 	public LoginPage clickOnRightSideMyAccountOption() {
-		rightSideMyAccountOption.click();
+		elementUtils.clickOnElement(rightSideMyAccountOption);
 		return new LoginPage(driver);
 	}
 	
 	public LoginPage clickOnRightSideLoginOption() {
-		rightSideLoginOption.click();
+		elementUtils.clickOnElement(rightSideLoginOption);
 		return new LoginPage(driver);
 	}
 	
 	public RegisterPage clickOnRightSideRegisterOption() {
-		rightSideRegisterOption.click();
+		elementUtils.clickOnElement(rightSideRegisterOption);
 		return new RegisterPage(driver);
 	}
 	
 	public ForgottenPasswordPage clickOnRightSideForgottenPasswordOption() {
-		rightSideForgottenPasswordOption.click();
+		elementUtils.clickOnElement(rightSideForgottenPasswordOption);
 		return new ForgottenPasswordPage(driver);
 	}
 

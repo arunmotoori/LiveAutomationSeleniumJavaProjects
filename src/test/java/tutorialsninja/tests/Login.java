@@ -188,8 +188,8 @@ public class Login extends Base {
 
 		String passwordText = prop.getProperty("samplePassword");
 		loginPage.enterPassword(passwordText);
-		driver = loginPage.selectPasswordFieldTextAndCopy(driver);
-		driver = loginPage.pasteCopiedPasswordTextIntoEmailField(driver);
+	    loginPage.selectPasswordFieldTextAndCopy();
+		loginPage.pasteCopiedPasswordTextIntoEmailField();
 		Assert.assertNotEquals(loginPage.getTextCopiedIntoEmailField(), passwordText);
 
 	}

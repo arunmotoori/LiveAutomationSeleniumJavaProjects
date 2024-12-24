@@ -3,12 +3,16 @@ package pages;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.*;
 import pages.root.RootPage;
+import utils.ElementUtils;
 
 public class AccountLogoutPage extends RootPage {
+	
+	ElementUtils elementUtils;
 
 	public AccountLogoutPage(WebDriver driver) {
 		super(driver);
 		this.driver = driver;
+		elementUtils = new ElementUtils(driver);
 		PageFactory.initElements(driver, this);
 	}
 
@@ -28,24 +32,24 @@ public class AccountLogoutPage extends RootPage {
 	private WebElement pageHeading;
 
 	public String getPageHeading() {
-		return getTextOfElement(pageHeading);
+		return elementUtils.getTextOfElement(pageHeading);
 	}
 
 	public LandingPage clickOnContinueButton() {
-		continueButton.click();
+		elementUtils.clickOnElement(continueButton);
 		return new LandingPage(driver);
 	}
 
 	public boolean didWeNavigateToAccountLogoutPage() {
-		return isElementDisplayed(logoutBreadcrumb);
+		return elementUtils.isElementDisplayed(logoutBreadcrumb);
 	}
 
 	public void clickOnMyAccountDropMenu() {
-		myAccountDropMenu.click();
+		elementUtils.clickOnElement(myAccountDropMenu);
 	}
 
 	public LoginPage selectLoginOption() {
-		loginOption.click();
+		elementUtils.clickOnElement(loginOption);
 		return new LoginPage(driver);
 	}
 

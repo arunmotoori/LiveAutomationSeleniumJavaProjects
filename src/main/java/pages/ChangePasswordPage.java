@@ -3,12 +3,16 @@ package pages;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.*;
 import pages.root.RootPage;
+import utils.ElementUtils;
 
 public class ChangePasswordPage extends RootPage{
+	
+	ElementUtils elementUtils;
 
 	public ChangePasswordPage(WebDriver driver) {
 		super(driver);
 		this.driver = driver;
+		elementUtils = new ElementUtils(driver);
 		PageFactory.initElements(driver,this);
 		
 	}
@@ -23,15 +27,15 @@ public class ChangePasswordPage extends RootPage{
 	private WebElement continueButton;
 	
 	public void enterPassword(String passwordText) {
-		passwordField.sendKeys(passwordText);
+		elementUtils.enterTextIntoElement(passwordField, passwordText);
 	}
 	
 	public void enterConfirmPassword(String passwordText) {
-		passwordConfirmField.sendKeys(passwordText);
+		elementUtils.enterTextIntoElement(passwordConfirmField, passwordText);
 	}
 	
 	public AccountPage clickOnContinueButton() {
-		continueButton.click();
+		elementUtils.clickOnElement(continueButton);
 		return new AccountPage(driver);
 	}
 	

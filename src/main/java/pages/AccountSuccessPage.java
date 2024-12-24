@@ -3,12 +3,16 @@ package pages;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.*;
 import pages.root.RootPage;
+import utils.ElementUtils;
 
 public class AccountSuccessPage extends RootPage {
+	
+	ElementUtils elementUtils;
 
 	public AccountSuccessPage(WebDriver driver) {
 		super(driver);
 		this.driver = driver;
+		elementUtils = new ElementUtils(driver);
 		PageFactory.initElements(driver, this);
 	}
 
@@ -28,23 +32,23 @@ public class AccountSuccessPage extends RootPage {
 	private WebElement accountSuccessPageBreadcrumb;
 
 	public boolean isUserLoggedIn() {
-		return isElementDisplayed(logoutOption);
+		return elementUtils.isElementDisplayed(logoutOption);
 	}
 
 	public String getPageHeading() {
-		return getTextOfElement(pageHeading);
+		return elementUtils.getTextOfElement(pageHeading);
 	}
 
 	public String getPageContent() {
-		return getTextOfElement(pageContent);
+		return elementUtils.getTextOfElement(pageContent);
 	}
 
 	public AccountPage clickOnContinueButton() {
-		continueButton.click();
+		elementUtils.clickOnElement(continueButton);
 		return new AccountPage(driver);
 	}
 
 	public boolean didWeNavigateToAccountSuccessPage() {
-		return isElementDisplayed(accountSuccessPageBreadcrumb);
+		return elementUtils.isElementDisplayed(accountSuccessPageBreadcrumb);
 	}
 }

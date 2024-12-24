@@ -3,12 +3,16 @@ package pages;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.*;
 import pages.root.RootPage;
+import utils.ElementUtils;
 
 public class EditAccountInformationPage extends RootPage {
+	
+	ElementUtils elementUtils;
 
 	public EditAccountInformationPage(WebDriver driver) {
 		super(driver);
 		this.driver = driver;
+		elementUtils = new ElementUtils(driver);
 		PageFactory.initElements(driver, this);
 	}
 
@@ -25,19 +29,19 @@ public class EditAccountInformationPage extends RootPage {
 	private WebElement telephoneField;
 
 	public String getFirstNameFieldValue() {
-		return getDomAttributeOfElement(firstNameField,"value");
+		return elementUtils.getDomAttributeOfElement(firstNameField,"value");
 	}
 
 	public String getLastNameFieldValue() {
-		return getDomAttributeOfElement(lastNameField,"value");
+		return elementUtils.getDomAttributeOfElement(lastNameField,"value");
 	}
 
 	public String getEmailFieldValue() {
-		return getDomAttributeOfElement(emailField,"value");
+		return elementUtils.getDomAttributeOfElement(emailField,"value");
 	}
 
 	public String getTelephoneFieldValue() {
-		return getDomAttributeOfElement(telephoneField,"value");
+		return elementUtils.getDomAttributeOfElement(telephoneField,"value");
 	}
 
 }

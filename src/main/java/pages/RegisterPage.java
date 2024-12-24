@@ -3,12 +3,16 @@ package pages;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.*;
 import pages.root.RootPage;
+import utils.ElementUtils;
 
 public class RegisterPage extends RootPage {
+	
+	ElementUtils elementUtils;
 
 	public RegisterPage(WebDriver driver) {
 		super(driver);
 		this.driver = driver;
+		elementUtils = new ElementUtils(driver);
 		PageFactory.initElements(driver, this);
 	}
 
@@ -114,279 +118,279 @@ public class RegisterPage extends RootPage {
 	private WebElement registerPageHeading;
 
 	public String getRegisterPageHeading() {
-		return getTextOfElement(registerPageHeading);
+		return elementUtils.getTextOfElement(registerPageHeading);
 	}
 
 	public boolean waitAndCheckDisplayStatusOfClosePrivacyPolicyOption(WebDriver driver, int seconds) {
-		return isElementDisplayedAfterWaiting(xOptionPrivacyPolicy,seconds);
+		return elementUtils.isElementDisplayedAfterWaiting(xOptionPrivacyPolicy,seconds);
 	}
 
 	public void closePrivacyPolicyDialog() {
-		xOption.click();
+		elementUtils.clickOnElement(xOption);
 	}
 
 	public void clickOnPrivacyPolicyOption() {
-		privacyPolicyOption.click();
+		elementUtils.clickOnElement(privacyPolicyOption);
 	}
 
 	public LoginPage clickOnLoginPageLink() {
-		loginPageOption.click();
+		elementUtils.clickOnElement(loginPageOption);
 		return new LoginPage(driver);
 	}
 
 	public void enterFirstName(String firstNameText) {
-		firstNameField.sendKeys(firstNameText);
+		elementUtils.enterTextIntoElement(firstNameField, firstNameText);
 	}
 
 	public void enterLastName(String lastNameText) {
-		lastNameField.sendKeys(lastNameText);
+		elementUtils.enterTextIntoElement(lastNameField, lastNameText);
 	}
 
 	public void enterEmail(String emailText) {
-		emailField.sendKeys(emailText);
+		elementUtils.enterTextIntoElement(emailField, emailText);
 	}
 
 	public void enterTelephoneNumber(String telephoneText) {
-		telephoneField.sendKeys(telephoneText);
+		elementUtils.enterTextIntoElement(telephoneField, telephoneText);
 	}
 
 	public void enterPassword(String passwordText) {
-		passwordField.sendKeys(passwordText);
+		elementUtils.enterTextIntoElement(passwordField, passwordText);
 	}
 
 	public void enterConfirmPassword(String passwordText) {
-		passwordConfirmField.sendKeys(passwordText);
+		elementUtils.enterTextIntoElement(passwordConfirmField, passwordText);
 	}
 
 	public void selectPrivacyPolicy() {
-		privacyPolicyField.click();
+		elementUtils.clickOnElement(privacyPolicyField);
 	}
 
 	public AccountSuccessPage clickOnContinueButton() {
-		continueButton.click();
+		elementUtils.clickOnElement(continueButton);
 		return new AccountSuccessPage(driver);
 	}
 
 	public void selectYesNewsletterOption() {
-		yesNewsletterOption.click();
+		elementUtils.clickOnElement(yesNewsletterOption);
 	}
 
 	public void selectNoNewsletterOption() {
-		noNewsletterOption.click();
+		elementUtils.clickOnElement(noNewsletterOption);
 	}
 
 	public String getFirstNameWarning() {
-		return getTextOfElement(firstNameWarning);
+		return elementUtils.getTextOfElement(firstNameWarning);
 	}
 
 	public String getLastNameWarning() {
-		return getTextOfElement(lastNameWarning);
+		return elementUtils.getTextOfElement(lastNameWarning);
 	}
 
 	public String getEmailWarning() {
-		return getTextOfElement(emailWarning);
+		return elementUtils.getTextOfElement(emailWarning);
 	}
 
 	public String getTelephoneWarning() {
-		return getTextOfElement(telephoneWarning);
+		return elementUtils.getTextOfElement(telephoneWarning);
 	}
 
 	public String getPasswordWarning() {
-		return getTextOfElement(passwordWarning);
+		return elementUtils.getTextOfElement(passwordWarning);
 	}
 
 	public String getPrivacyPolicyWarning() {
-		return getTextOfElement(privacyPolicyWarning);
+		return elementUtils.getTextOfElement(privacyPolicyWarning);
 	}
 
 	public boolean didWeNavigateToRegisterAccountPage() {
-		return isElementDisplayed(registerBreadcrumb);
+		return elementUtils.isElementDisplayed(registerBreadcrumb);
 	}
 
 	public RegisterPage clickOnRegisterBreadcrumb() {
-		registerBreadcrumb.click();
+		elementUtils.clickOnElement(registerBreadcrumb);
 		return new RegisterPage(driver);
 	}
 
 	public void clickOnMyAccount() {
-		myAccontDropMenu.click();
+		elementUtils.clickOnElement(myAccontDropMenu);
 	}
 
 	public LoginPage selectLoginOption() {
-		loginOption.click();
+		elementUtils.clickOnElement(loginOption);
 		return new LoginPage(driver);
 	}
 
 	public String getPasswordConfirmWarning() {
-		return getTextOfElement(passwordConfirmWarning);
+		return elementUtils.getTextOfElement(passwordConfirmWarning);
 	}
 
 	public String getExistingEmailWarning() {
-		return getTextOfElement(existingEmailWarning);
+		return elementUtils.getTextOfElement(existingEmailWarning);
 	}
 
 	public String getEmailValidationMessage() {
-		return getDomPropertyOfElement(emailField,"validationMessage");
+		return elementUtils.getDomPropertyOfElement(emailField,"validationMessage");
 	}
 
 	public void clearEmailField() {
-		emailField.clear();
+		elementUtils.clearTextFromElement(emailField);
 	}
 
 	public String getPlaceHolderTextFromFirstNameField() {
-		return getDomAttributeOfElement(firstNameField,"placeholder");
+		return elementUtils.getDomAttributeOfElement(firstNameField,"placeholder");
 	}
 
 	public String getPlaceHolderTextFromLastNameField() {
-		return getDomAttributeOfElement(lastNameField,"placeholder");
+		return elementUtils.getDomAttributeOfElement(lastNameField,"placeholder");
 	}
 
 	public String getPlaceHolderTextFromEmailField() {
-		return getDomAttributeOfElement(emailField,"placeholder");
+		return elementUtils.getDomAttributeOfElement(emailField,"placeholder");
 	}
 
 	public String getPlaceHolderTextFromTelephoneField() {
-		return getDomAttributeOfElement(telephoneField,"placeholder");
+		return elementUtils.getDomAttributeOfElement(telephoneField,"placeholder");
 	}
 
 	public String getPlaceHolderTextFromPasswordField() {
-		return getDomAttributeOfElement(passwordField,"placeholder");
+		return elementUtils.getDomAttributeOfElement(passwordField,"placeholder");
 	}
 
 	public String getPlaceHolderTextFromPasswordConfirmField() {
-		return getDomAttributeOfElement(passwordConfirmField,"placeholder");
+		return elementUtils.getDomAttributeOfElement(passwordConfirmField,"placeholder");
 	}
 
 	public String getFirstNameLabelContent(WebDriver driver) {
-		return getCSSPropertyOfPuseudoElement(firstNameLabel,"content");
+		return elementUtils.getCSSPropertyOfPuseudoElement(firstNameLabel,"content");
 	}
 
 	public String getFirstNameLabelColor(WebDriver driver) {
-		return getCSSPropertyOfPuseudoElement(firstNameLabel,"color");
+		return elementUtils.getCSSPropertyOfPuseudoElement(firstNameLabel,"color");
 	}
 
 	public String getLastNameLabelContent(WebDriver driver) {
-		return getCSSPropertyOfPuseudoElement(lastNameLabel,"content");
+		return elementUtils.getCSSPropertyOfPuseudoElement(lastNameLabel,"content");
 	}
 
 	public String getLastNameLabelColor(WebDriver driver) {
-		return getCSSPropertyOfPuseudoElement(lastNameLabel,"color");
+		return elementUtils.getCSSPropertyOfPuseudoElement(lastNameLabel,"color");
 	}
 
 	public String getEmailLabelContent(WebDriver driver) {
-		return getCSSPropertyOfPuseudoElement(emailLabel,"content");
+		return elementUtils.getCSSPropertyOfPuseudoElement(emailLabel,"content");
 	}
 
 	public String getEmailLabelColor(WebDriver driver) {
-		return getCSSPropertyOfPuseudoElement(emailLabel,"color");
+		return elementUtils.getCSSPropertyOfPuseudoElement(emailLabel,"color");
 	}
 
 	public String getTelephoneLabelContent(WebDriver driver) {
-		return getCSSPropertyOfPuseudoElement(telephoneLabel,"content");
+		return elementUtils.getCSSPropertyOfPuseudoElement(telephoneLabel,"content");
 	}
 
 	public String getTelephoneLabelColor(WebDriver driver) {
-		return getCSSPropertyOfPuseudoElement(telephoneLabel,"color");
+		return elementUtils.getCSSPropertyOfPuseudoElement(telephoneLabel,"color");
 	}
 
 	public String getPasswordLabelContent(WebDriver driver) {
-		return getCSSPropertyOfPuseudoElement(passwordLabel,"content");
+		return elementUtils.getCSSPropertyOfPuseudoElement(passwordLabel,"content");
 	}
 
 	public String getPasswordLabelColor(WebDriver driver) {
-		return getCSSPropertyOfPuseudoElement(passwordLabel,"color");
+		return elementUtils.getCSSPropertyOfPuseudoElement(passwordLabel,"color");
 	}
 
 	public String getPasswordConfirmLabelContent(WebDriver driver) {
-		return getCSSPropertyOfPuseudoElement(passwordConfirmLabel,"content");
+		return elementUtils.getCSSPropertyOfPuseudoElement(passwordConfirmLabel,"content");
 	}
 
 	public String getPasswordConfirmLabelColor(WebDriver driver) {
-		return getCSSPropertyOfPuseudoElement(passwordConfirmLabel,"color");
+		return elementUtils.getCSSPropertyOfPuseudoElement(passwordConfirmLabel,"color");
 	}
 
 	public String getPrivacyPolicyLabelContent(WebDriver driver) {
-		return getCSSPropertyOfPuseudoElement(privacyPolicyLabel,"content");
+		return elementUtils.getCSSPropertyOfPuseudoElement(privacyPolicyLabel,"content");
 	}
 
 	public String getPrivacyPolicyLabelColor(WebDriver driver) {
-		return getCSSPropertyOfPuseudoElement(privacyPolicyLabel,"color");
+		return elementUtils.getCSSPropertyOfPuseudoElement(privacyPolicyLabel,"color");
 	}
 
 	public String getFirstNameFieldHeight() {
-		return getCSSPropertyOfElement(firstNameField,"height");
+		return elementUtils.getCSSPropertyOfElement(firstNameField,"height");
 	}
 
 	public String getFirstNameFieldWidth() {
-		return getCSSPropertyOfElement(firstNameField,"width");
+		return elementUtils.getCSSPropertyOfElement(firstNameField,"width");
 	}
 
 	public void clearFirstNameField() {
-		firstNameField.clear();
+		elementUtils.clearTextFromElement(firstNameField);
 	}
 
 	public boolean isFirstNameWarningDisplayed() {
-		return isElementDisplayed(firstNameWarning);
+		return elementUtils.isElementDisplayed(firstNameWarning);
 	}
 
 	public String getLastNameFieldHeight() {
-		return getCSSPropertyOfElement(lastNameField,"height");
+		return elementUtils.getCSSPropertyOfElement(lastNameField,"height");
 	}
 
 	public String getLastNameFieldWidth() {
-		return getCSSPropertyOfElement(lastNameField,"width");
+		return elementUtils.getCSSPropertyOfElement(lastNameField,"width");
 	}
 
 	public void clearLastNameField() {
-		lastNameField.clear();
+		elementUtils.clearTextFromElement(lastNameField);
 	}
 
 	public boolean isLastNameWarningDisplayed() {
-		return isElementDisplayed(lastNameWarning);
+		return elementUtils.isElementDisplayed(lastNameWarning);
 	}
 
 	public String getEmailFieldHeight() {
-		return getCSSPropertyOfElement(emailField,"height");
+		return elementUtils.getCSSPropertyOfElement(emailField,"height");
 	}
 
 	public String getEmailFieldWidth() {
-		return getCSSPropertyOfElement(emailField,"width");
+		return elementUtils.getCSSPropertyOfElement(emailField,"width");
 	}
 
 	public boolean isEmailWarningDisplayed() {
-		return isElementDisplayed(emailWarning);
+		return elementUtils.isElementDisplayed(emailWarning);
 	}
 
 	public String getTelephoneFieldHeight() {
-		return getCSSPropertyOfElement(telephoneField,"height");
+		return elementUtils.getCSSPropertyOfElement(telephoneField,"height");
 	}
 
 	public String getTelephoneFieldWidth() {
-		return getCSSPropertyOfElement(telephoneField,"width");
+		return elementUtils.getCSSPropertyOfElement(telephoneField,"width");
 	}
 
 	public void clearTelephoneField() {
-		telephoneField.clear();
+		elementUtils.clearTextFromElement(telephoneField);
 	}
 
 	public boolean isTelephoneWarningDisplayed() {
-		return isElementDisplayed(telephoneWarning);
+		return elementUtils.isElementDisplayed(telephoneWarning);
 	}
 
 	public String getPasswordFieldHeight() {
-		return getCSSPropertyOfElement(passwordField,"height");
+		return elementUtils.getCSSPropertyOfElement(passwordField,"height");
 	}
 
 	public String getPasswordFieldWidth() {
-		return getCSSPropertyOfElement(passwordField,"width");
+		return elementUtils.getCSSPropertyOfElement(passwordField,"width");
 	}
 
 	public void clearPasswordField() {
-		passwordField.clear();
+		elementUtils.clearTextFromElement(passwordField);
 	}
 
 	public boolean isPasswordWarningDisplayed() {
-		return isElementDisplayed(passwordWarning);
+		return elementUtils.isElementDisplayed(passwordWarning);
 	}
 
 	public boolean isPasswordWarningDisplayedAndMatch(String expectedWarning) {
@@ -394,31 +398,31 @@ public class RegisterPage extends RootPage {
 	}
 
 	public String getPasswordConfirmFieldHeight() {
-		return getCSSPropertyOfElement(passwordConfirmField,"height");
+		return elementUtils.getCSSPropertyOfElement(passwordConfirmField,"height");
 	}
 
 	public String getPasswordConfirmFieldWidth() {
-		return getCSSPropertyOfElement(passwordConfirmField,"width");
+		return elementUtils.getCSSPropertyOfElement(passwordConfirmField,"width");
 	}
 
 	public void clearPasswordConfirmField() {
-		passwordConfirmField.clear();
+		elementUtils.clearTextFromElement(passwordConfirmField);
 	}
 
 	public boolean isPasswordConfirmWarningDisplayed() {
-		return isElementDisplayed(passwordConfirmWarning);
+		return elementUtils.isElementDisplayed(passwordConfirmWarning);
 	}
 
 	public boolean isPrivacyPolicySelected() {
-		return isElementSelected(privacyPolicyField);
+		return elementUtils.isElementSelected(privacyPolicyField);
 	}
 
 	public String getPasswordFieldType() {
-		return getDomAttributeOfElement(passwordField,"type");
+		return elementUtils.getDomAttributeOfElement(passwordField,"type");
 	}
 
 	public String getPasswordConfirmFieldType() {
-		return getDomAttributeOfElement(passwordConfirmField,"type");
+		return elementUtils.getDomAttributeOfElement(passwordConfirmField,"type");
 	}
 
 }

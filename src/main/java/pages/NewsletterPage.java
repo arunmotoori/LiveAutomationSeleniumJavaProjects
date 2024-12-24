@@ -3,12 +3,16 @@ package pages;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.*;
 import pages.root.RootPage;
+import utils.ElementUtils;
 
 public class NewsletterPage extends RootPage {
+	
+	ElementUtils elementUtils;
 
 	public NewsletterPage(WebDriver driver) {
 		super(driver);
 		this.driver = driver;
+		elementUtils = new ElementUtils(driver);
 		PageFactory.initElements(driver, this);
 	}
 
@@ -22,15 +26,15 @@ public class NewsletterPage extends RootPage {
 	private WebElement noNewsletterOption;
 
 	public boolean didWeNavigateToNewsletterPage() {
-		return isElementDisplayed(newsletterBreadcrumb);
+		return elementUtils.isElementDisplayed(newsletterBreadcrumb);
 	}
 
 	public boolean isYesNewsletterOptionSelected() {
-		return isElementSelected(yesNewsletterOption);
+		return elementUtils.isElementSelected(yesNewsletterOption);
 	}
 
 	public boolean isNoNewsletterOptionSelected() {
-		return isElementSelected(noNewsletterOption);
+		return elementUtils.isElementSelected(noNewsletterOption);
 	}
 
 }

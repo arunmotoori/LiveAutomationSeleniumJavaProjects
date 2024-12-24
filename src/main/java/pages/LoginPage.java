@@ -1,15 +1,18 @@
 package pages;
 
 import org.openqa.selenium.*;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.*;
 import pages.root.RootPage;
+import utils.ElementUtils;
 
 public class LoginPage extends RootPage {
+	
+	ElementUtils elementUtils;
 
 	public LoginPage(WebDriver driver) {
 		super(driver);
 		this.driver = driver;
+		elementUtils = new ElementUtils(driver);
 		PageFactory.initElements(driver, this);
 	}
 
@@ -53,92 +56,88 @@ public class LoginPage extends RootPage {
 	}
 
 	public String getPageHeadingOne() {
-		return getTextOfElement(headingOne);
+		return elementUtils.getTextOfElement(headingOne);
 	}
 
 	public String getPageHeadingTwo() {
-		return getTextOfElement(headingTwo);
+		return elementUtils.getTextOfElement(headingTwo);
 	}
 
 	public LoginPage clickOnLoginBreadcrumb() {
-		loginBreadcrumb.click();
+		elementUtils.clickOnElement(loginBreadcrumb);
 		return new LoginPage(driver);
 	}
 
 	public void clearPassword() {
-		passwordField.clear();
+		elementUtils.clearTextFromElement(passwordField);
 	}
 
 	public String getTextCopiedIntoEmailField() {
-		return getDomPropertyOfElement(emailField,"value");
+		return elementUtils.getDomPropertyOfElement(emailField,"value");
 	}
 
-	public WebDriver pasteCopiedPasswordTextIntoEmailField(WebDriver driver) {
-		Actions actions = new Actions(driver);
-		actions.click(emailField).keyDown(Keys.CONTROL).sendKeys("v").keyUp(Keys.CONTROL);
-		return driver;
+	public void pasteCopiedPasswordTextIntoEmailField() {
+		elementUtils.pastingTextIntoField(emailField);
 	}
 
-	public WebDriver selectPasswordFieldTextAndCopy(WebDriver driver) {
-		Actions actions = new Actions(driver);
-		actions.doubleClick(passwordField).keyDown(Keys.CONTROL).sendKeys("c").keyUp(Keys.CONTROL);
-		return driver;
+	public void selectPasswordFieldTextAndCopy() {
+		elementUtils.copyTextFromElement(passwordField);
 	}
 
 	public String getPasswordFieldType() {
-		return getDomAttributeOfElement(passwordField,"type");
+		return elementUtils.getDomAttributeOfElement(passwordField,"type");
 	}
 
 	public AccountPage clickOnMyAccountRightColumnOption() {
-		myAccountRightColumnOption.click();
+		elementUtils.clickOnElement(myAccountRightColumnOption);
 		return new AccountPage(driver);
 	}
 
 	public String getEmailPlaceholder() {
-		return getDomAttributeOfElement(emailField,"placeholder");
+		return elementUtils.getDomAttributeOfElement(emailField,"placeholder");
 	}
 
 	public String getPasswordPlaceholder() {
-		return getDomAttributeOfElement(passwordField,"placeholder");
+		return elementUtils.getDomAttributeOfElement(passwordField,"placeholder");
 	}
 
 	public boolean availabilityOfForgottenPasswordLink() {
-		return isElementDisplayed(forgottenPasswordLink);
+		return elementUtils.isElementDisplayed(forgottenPasswordLink);
 	}
 
 	public ForgottenPasswordPage clickOnForgottenPasswordLink() {
-		forgottenPasswordLink.click();
+		elementUtils.clickOnElement(forgottenPasswordLink);
 		return new ForgottenPasswordPage(driver);
 	}
 
 	public String getWarningMessage() {
-		return getTextOfElement(warningMessage);
+		return elementUtils.getTextOfElement(warningMessage);
 	}
 
 	public AccountPage clickOnLoginButton() {
-		loginButton.click();
+		elementUtils.clickOnElement(loginButton);
 		return new AccountPage(driver);
 	}
 
 	public void enterPassword(String passwordText) {
-		passwordField.sendKeys(passwordText);
+		elementUtils.enterTextIntoElement(passwordField, passwordText);
 	}
 
 	public void enterEmail(String emailText) {
-		emailField.sendKeys(emailText);
+		elementUtils.enterTextIntoElement(emailField, emailText);
 	}
 
 	public RegisterPage clickOnContinueButton() {
-		continueButton.click();
+		elementUtils.clickOnElement(continueButton);
 		return new RegisterPage(driver);
 	}
 
 	public void clickOnRegisterOption() {
-		registerOption.click();
+		elementUtils.clickOnElement(registerOption);
 	}
 
 	public boolean didWeNaviateToLoginPage() {
-		return isElementDisplayed(loginBreadcrumb);
+		return elementUtils.isElementDisplayed(loginBreadcrumb);
 	}
 
 }

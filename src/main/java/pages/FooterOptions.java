@@ -3,12 +3,16 @@ package pages;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.*;
 import pages.root.RootPage;
+import utils.ElementUtils;
 
 public class FooterOptions extends RootPage{
+	
+	ElementUtils elementUtils;
 	
 	public FooterOptions(WebDriver driver) {
 		super(driver);
 		this.driver = driver;
+		elementUtils = new ElementUtils(driver);
 		PageFactory.initElements(driver,this);
 	}
 	
@@ -58,77 +62,77 @@ public class FooterOptions extends RootPage{
 	private WebElement newsletterFooterOption;
 	
 	public LoginPage clickOnNewsletterFooterOption() {
-		newsletterFooterOption.click();
+		elementUtils.clickOnElement(newsletterFooterOption);
 		return new LoginPage(driver);
 	}
 	
 	public LoginPage clickOnWishListFooterOption() {
-		wishListFooterOption.click();
+		elementUtils.clickOnElement(wishListFooterOption);
 		return new LoginPage(driver);
 	}
 	
 	public LoginPage clickOnOrderHistoryFooterOption() {
-		orderHistoryFooterOption.click();
+		elementUtils.clickOnElement(orderHistoryFooterOption);
 		return new LoginPage(driver);
 	}
 	
 	public LoginPage clickOnMyAccountFooterOption() {
-		myAccountFooterOption.click();
+		elementUtils.clickOnElement(myAccountFooterOption);
 		return new LoginPage(driver);
 	}
 	
 	public SpecialOffersPage clickOnSpecialsFooterOption() {
-		specialsFooterOption.click();
+		elementUtils.clickOnElement(specialsFooterOption);
 		return new SpecialOffersPage(driver);
 	}
 	
 	public AffiliateLoginPage clickOnAffiliateFooterOption() {
-		affiliateFooterOption.click();
+		elementUtils.clickOnElement(affiliateFooterOption);
 		return new AffiliateLoginPage(driver);
 	}
 	
 	public GiftCertificatePage clickOnGiftCertificateFooterOption() {
-		giftCertificateFooterOption.click();
+		elementUtils.clickOnElement(giftCertificateFooterOption);
 		return new GiftCertificatePage(driver);
 	}
 	
 	public BrandPage clickOnBrandsFooterOption() {
-		brandsFooterOption.click();
+		elementUtils.clickOnElement(brandsFooterOption);
 		return new BrandPage(driver);
 	}
 	
 	public SiteMapPage clickOnSiteMapFooterOption() {
-		siteMapFooterOption.click();
+		elementUtils.clickOnElement(siteMapFooterOption);
 		return new SiteMapPage(driver);
 	}
 	
 	public ProductReturnsPage clickOnReturnsFooterOption() {
-		returnsFooterOption.click();
+		elementUtils.clickOnElement(returnsFooterOption);
 		return new ProductReturnsPage(driver);
 	}
 	
 	public ContactUsPage clickOnContactUsFooterOption() {
-		contactUsFooterOption.click();
+		elementUtils.clickOnElement(contactUsFooterOption);
 		return new ContactUsPage(driver);
 	}
 	
 	public TermsAndConditionsPage clickOnTermsAndConditionsFooterOption() {
-		termsAndConditionsFooterOption.click();
+		elementUtils.clickOnElement(termsAndConditionsFooterOption);
 		return new TermsAndConditionsPage(driver);
 	}
 	
 	public PrivacyPolicyPage clickOnPrivacyPolicyFooterOption() {
-		privacyPolicyFooterOption.click();
+		elementUtils.clickOnElement(privacyPolicyFooterOption);
 		return new PrivacyPolicyPage(driver);
 	}
 	
 	public DeliveryInformationPage clickOnDeliveryInformationFooterOption() {
-		deliveryInfomrationFooterOption.click();
+		elementUtils.clickOnElement(deliveryInfomrationFooterOption);
 		return new DeliveryInformationPage(driver);
 	}
 	
 	public AboutUsPage clickOnAboutUsFooterOption() {
-		aboutUsFooterOption.click();
+		elementUtils.clickOnElement(aboutUsFooterOption);
 		return new AboutUsPage(driver);
 	}
 

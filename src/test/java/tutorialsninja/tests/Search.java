@@ -91,5 +91,40 @@ public class Search extends Base {
 	
 	}
 	
+	@Test(priority = 7)
+	public void verifySearchingForProductUsingSearchCriteriaField() {
+		
+		headerOptions = new HeaderOptions(driver);
+		searchPage = headerOptions.clickOnSearchButton();
+		searchPage.enterIntoSearchCriteriaField(prop.getProperty("existingProduct"));
+		searchPage.clickOnSearchButton();
+		Assert.assertTrue(searchPage.isExistingProductDisplayedInSearchResults());
+		
+	}
+	
+	@Test(priority = 8)
+	public void verifySearchingForProductUsingSomeTextInProductDescription() {
+		
+		headerOptions = new HeaderOptions(driver);
+		searchPage = headerOptions.clickOnSearchButton();
+		searchPage.enterIntoSearchCriteriaField(prop.getProperty("termInProductDescription"));
+		searchPage.selectSearchInProductDescriptionCheckboxBoxField();
+		searchPage.clickOnSearchButton();
+		Assert.assertTrue(searchPage.isProductHavingDescriptionTextDisplayedInSearchResults());
+		
+	}
+	
+	@Test(priority = 9)
+	public void verifySearchBySelectingSubCategory() {
+		
+		headerOptions = new HeaderOptions(driver);
+		searchPage = headerOptions.clickOnSearchButton();
+		searchPage.enterIntoSearchCriteriaField(prop.getProperty("exitingProuductInSubCategory"));
+		searchPage.selectOptionFromCategoryDropdownField(3);
+		searchPage.clickOnSearchButton();
+		Assert.assertTrue(searchPage.isProductInCategoryDisplayedInSearchResults());
+	
+	}
+
 	
 }

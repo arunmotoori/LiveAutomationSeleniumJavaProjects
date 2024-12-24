@@ -3,12 +3,16 @@ package pages;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.*;
 import pages.root.RootPage;
+import utils.ElementUtils;
 
 public class HeaderOptions extends RootPage {
+	
+	ElementUtils elementUtils;
 
 	public HeaderOptions(WebDriver driver) {
 		super(driver);
 		this.driver = driver;
+		elementUtils = new ElementUtils(driver);
 		PageFactory.initElements(driver, this);
 	}
 
@@ -49,72 +53,72 @@ public class HeaderOptions extends RootPage {
 	private WebElement searchBoxField;
 
 	public String getPlaceHolderTextOfSearchBoxField() {
-		return getDomAttributeOfElement(searchBoxField,"placeholder");
+		return elementUtils.getDomAttributeOfElement(searchBoxField,"placeholder");
 	}
 
 	public void enterProductIntoSearchBoxField(String productName) {
-		searchBoxField.sendKeys(productName);
+		elementUtils.enterTextIntoElement(searchBoxField, productName);
 	}
 
 	public boolean isLogoutOptionAvaialable() {
-		return isElementDisplayed(logoutOption);
+		return elementUtils.isElementDisplayed(logoutOption);
 	}
 
 	public boolean isLoginOptionAvailable() {
-		return isElementDisplayed(loginOption);
+		return elementUtils.isElementDisplayed(loginOption);
 	}
 
 	public AccountLogoutPage selectLogoutOption() {
-		logoutOption.click();
+		elementUtils.clickOnElement(logoutOption);
 		return new AccountLogoutPage(driver);
 	}
 
 	public LoginPage selectLoginOption() {
-		loginOption.click();
+		elementUtils.clickOnElement(loginOption);
 		return new LoginPage(driver);
 	}
 
 	public void clickOnMyAccountDropMenu() {
-		myAccountDropMenu.click();
+		elementUtils.clickOnElement(myAccountDropMenu);
 	}
 
 	public ContactUsPage selectPhoneIconOption() {
-		phoneIconOption.click();
+		elementUtils.clickOnElement(phoneIconOption);
 		return new ContactUsPage(driver);
 	}
 
 	public LoginPage selectHeartIconOption() {
-		heartIconOption.click();
+		elementUtils.clickOnElement(heartIconOption);
 		return new LoginPage(driver);
 	}
 
 	public ShoppingCartPage selectShoppingCartOption() {
-		shoppingCartOption.click();
+		elementUtils.clickOnElement(shoppingCartOption);
 		return new ShoppingCartPage(driver);
 	}
 
 	public ShoppingCartPage selectCheckoutOption() {
-		checkoutOption.click();
+		elementUtils.clickOnElement(checkoutOption);
 		return new ShoppingCartPage(driver);
 	}
 
 	public LandingPage clickOnHomeBreadcrumb() {
-		homeBreadcrumb.click();
+		elementUtils.clickOnElement(homeBreadcrumb);
 		return new LandingPage(driver);
 	}
 
 	public LoginPage clickOnAccountBreadcrumb() {
-		accountBreadcrumb.click();
+		elementUtils.clickOnElement(accountBreadcrumb);
 		return new LoginPage(driver);
 	}
 
 	public SearchPage clickOnSearchButton() {
-		searchButton.click();
+		elementUtils.clickOnElement(searchButton);
 		return new SearchPage(driver);
 	}
 
 	public LandingPage selectLogoOption() {
-		logoOption.click();
+		elementUtils.clickOnElement(logoOption);
 		return new LandingPage(driver);
 	}
 

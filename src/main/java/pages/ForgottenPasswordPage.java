@@ -3,12 +3,16 @@ package pages;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.*;
 import pages.root.RootPage;
+import utils.ElementUtils;
 
 public class ForgottenPasswordPage extends RootPage {
+	
+	ElementUtils elementUtils;
 
 	public ForgottenPasswordPage(WebDriver driver) {
 		super(driver);
 		this.driver = driver;
+		elementUtils = new ElementUtils(driver);
 		PageFactory.initElements(driver, this);
 	}
 
@@ -16,7 +20,7 @@ public class ForgottenPasswordPage extends RootPage {
 	private WebElement forgottenPasswordBreacrumb;
 
 	public boolean didWeNavigateToForgottendPasswordPage() {
-		return isElementDisplayed(forgottenPasswordBreacrumb);
+		return elementUtils.isElementDisplayed(forgottenPasswordBreacrumb);
 	}
 
 }

@@ -3,12 +3,16 @@ package pages;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.*;
 import pages.root.RootPage;
+import utils.ElementUtils;
 
 public class ProductReturnsPage extends RootPage {
+	
+	ElementUtils elementUtils;
 
 	public ProductReturnsPage(WebDriver driver) {
 		super(driver);
 		this.driver = driver;
+		elementUtils = new ElementUtils(driver);
 		PageFactory.initElements(driver, this);
 	}
 
@@ -16,7 +20,7 @@ public class ProductReturnsPage extends RootPage {
 	private WebElement productReturnsPageBreadcrumb;
 
 	public boolean didWeNavigateToProductReturnsPage() {
-		return isElementDisplayed(productReturnsPageBreadcrumb);
+		return elementUtils.isElementDisplayed(productReturnsPageBreadcrumb);
 	}
 
 }

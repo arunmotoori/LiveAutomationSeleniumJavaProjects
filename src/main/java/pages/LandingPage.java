@@ -3,12 +3,16 @@ package pages;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.*;
 import pages.root.RootPage;
+import utils.ElementUtils;
 
 public class LandingPage extends RootPage{
+	
+	ElementUtils elementUtils;
 	
 	public LandingPage(WebDriver driver) {
 		super(driver);
 		this.driver = driver;
+		elementUtils = new ElementUtils(driver);
 		PageFactory.initElements(driver,this);
 	}
 	
@@ -28,12 +32,12 @@ public class LandingPage extends RootPage{
 	private WebElement searchButton;
 	
 	public SearchPage clickOnSearchButton() {
-		searchButton.click();
+		elementUtils.clickOnElement(searchButton);
 		return new SearchPage(driver);
 	}
 	
 	public void enterProductNameIntoIntoSearchBoxFiled(String productNameText) {
-		searchBoxField.sendKeys(productNameText);
+		elementUtils.enterTextIntoElement(searchBoxField, productNameText);
 	}
 	
 	public RegisterPage navigateToRegisterPage() {
@@ -47,16 +51,16 @@ public class LandingPage extends RootPage{
 	}
 	
 	public LoginPage selectLoginOption() {
-		loginOption.click();
+		elementUtils.clickOnElement(loginOption);
 		return new LoginPage(driver);
 	}
 	
 	public void clickOnMyAccount() {
-		myAccountDropMenu.click();
+		elementUtils.clickOnElement(myAccountDropMenu);
 	}
 	
 	public RegisterPage selectRegisterOption() {
-		registerOption.click();
+		elementUtils.clickOnElement(registerOption);
 		return new RegisterPage(driver);
 	}
 

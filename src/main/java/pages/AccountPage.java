@@ -3,12 +3,16 @@ package pages;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.*;
 import pages.root.RootPage;
+import utils.ElementUtils;
 
 public class AccountPage extends RootPage {
+	
+	ElementUtils elementUtils;
 
 	public AccountPage(WebDriver driver) {
 		super(driver);
 		this.driver = driver;
+		elementUtils = new ElementUtils(driver);
 		PageFactory.initElements(driver, this);
 	}
 
@@ -28,34 +32,34 @@ public class AccountPage extends RootPage {
 	private WebElement message;
 
 	public String getMessage() {
-		return getTextOfElement(message);
+		return elementUtils.getTextOfElement(message);
 	}
 
 	public ChangePasswordPage clickOnChangeYourPasswordOption() {
-		changeYourPassword.click();
+		elementUtils.clickOnElement(changeYourPassword);
 		return new ChangePasswordPage(driver);
 	}
 
 	public AccountLogoutPage clickOnLogoutOption() {
-		logoutOption.click();
+		elementUtils.clickOnElement(logoutOption);
 		return new AccountLogoutPage(driver);
 	}
 
 	public boolean isUserLoggedIn() {
-		return isElementDisplayed(logoutOption);
+		return elementUtils.isElementDisplayed(logoutOption);
 	}
 
 	public boolean didWenavigateToAccountPage() {
-		return isElementDisplayed(editYourAccountInformationOption);
+		return elementUtils.isElementDisplayed(editYourAccountInformationOption);
 	}
 
 	public NewsletterPage selectSubscribeUnSubscribeNewsletterOption() {
-		subscribeUnsubscribeNewsletterOption.click();
+		elementUtils.clickOnElement(subscribeUnsubscribeNewsletterOption);
 		return new NewsletterPage(driver);
 	}
 
 	public EditAccountInformationPage clickOnEditYourAccountInformationOption() {
-		editYourAccountInformationOption.click();
+		elementUtils.clickOnElement(editYourAccountInformationOption);
 		return new EditAccountInformationPage(driver);
 	}
 
