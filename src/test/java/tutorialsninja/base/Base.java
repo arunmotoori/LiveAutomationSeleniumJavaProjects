@@ -170,5 +170,10 @@ public class Base {
 			driver.quit();
 		}
 	}
+	
+	public WebDriver refreshPage(WebDriver driver) {
+		driver.navigate().refresh();
+		return driver;
+	}
 
 }

@@ -1,20 +1,10 @@
 package pages;
 
-import java.time.Duration;
-
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
+import org.openqa.selenium.*;
+import org.openqa.selenium.support.*;
 import pages.root.RootPage;
 
-public class RegisterPage extends RootPage{
+public class RegisterPage extends RootPage {
 
 	public RegisterPage(WebDriver driver) {
 		super(driver);
@@ -105,50 +95,44 @@ public class RegisterPage extends RootPage{
 
 	@FindBy(css = "[class='pull-right']")
 	private WebElement privacyPolicyLabel;
-	
-	@FindBy(linkText="login page")
+
+	@FindBy(linkText = "login page")
 	private WebElement loginPageOption;
-	
-	@FindBy(xpath="//a[@class='agree']/b[text()='Privacy Policy']")
+
+	@FindBy(xpath = "//a[@class='agree']/b[text()='Privacy Policy']")
 	private WebElement privacyPolicyOption;
-	
-	@FindBy(xpath="//button[text()='×']")
+
+	@FindBy(xpath = "//button[text()='×']")
 	private WebElement closePrivacyPolicyDialogOption;
-	
-	@FindBy(xpath="//button[text()='×']")
+
+	@FindBy(xpath = "//button[text()='×']")
 	private WebElement xOption;
-	
+
 	private By xOptionPrivacyPolicy = By.xpath("//button[text()='×']");
-	
-	
-	
-	@FindBy(xpath="//div[@id='content']/h1")
+
+	@FindBy(xpath = "//div[@id='content']/h1")
 	private WebElement registerPageHeading;
 
-	
 	public String getRegisterPageHeading() {
-		return registerPageHeading.getText();
+		return getTextOfElement(registerPageHeading);
 	}
-	
-	public boolean waitAndCheckDisplayStatusOfClosePrivacyPolicyOption(WebDriver driver,int seconds) {
-		WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(seconds));
-		wait.until(ExpectedConditions.visibilityOfElementLocated(xOptionPrivacyPolicy));
-		return xOption.isDisplayed();
+
+	public boolean waitAndCheckDisplayStatusOfClosePrivacyPolicyOption(WebDriver driver, int seconds) {
+		return isElementDisplayedAfterWaiting(xOptionPrivacyPolicy,seconds);
 	}
-	
+
 	public void closePrivacyPolicyDialog() {
 		xOption.click();
 	}
-	
+
 	public void clickOnPrivacyPolicyOption() {
 		privacyPolicyOption.click();
 	}
-	
+
 	public LoginPage clickOnLoginPageLink() {
 		loginPageOption.click();
 		return new LoginPage(driver);
 	}
-
 
 	public void enterFirstName(String firstNameText) {
 		firstNameField.sendKeys(firstNameText);
@@ -192,33 +176,33 @@ public class RegisterPage extends RootPage{
 	}
 
 	public String getFirstNameWarning() {
-		return firstNameWarning.getText();
+		return getTextOfElement(firstNameWarning);
 	}
 
 	public String getLastNameWarning() {
-		return lastNameWarning.getText();
+		return getTextOfElement(lastNameWarning);
 	}
 
 	public String getEmailWarning() {
-		return emailWarning.getText();
+		return getTextOfElement(emailWarning);
 	}
 
 	public String getTelephoneWarning() {
-		return telephoneWarning.getText();
+		return getTextOfElement(telephoneWarning);
 	}
 
 	public String getPasswordWarning() {
-		return passwordWarning.getText();
+		return getTextOfElement(passwordWarning);
 	}
 
 	public String getPrivacyPolicyWarning() {
-		return privacyPolicyWarning.getText();
+		return getTextOfElement(privacyPolicyWarning);
 	}
 
 	public boolean didWeNavigateToRegisterAccountPage() {
-		return registerBreadcrumb.isDisplayed();
+		return isElementDisplayed(registerBreadcrumb);
 	}
-	
+
 	public RegisterPage clickOnRegisterBreadcrumb() {
 		registerBreadcrumb.click();
 		return new RegisterPage(driver);
@@ -234,16 +218,15 @@ public class RegisterPage extends RootPage{
 	}
 
 	public String getPasswordConfirmWarning() {
-		return passwordConfirmWarning.getText();
+		return getTextOfElement(passwordConfirmWarning);
 	}
 
 	public String getExistingEmailWarning() {
-		return existingEmailWarning.getText();
-
+		return getTextOfElement(existingEmailWarning);
 	}
 
 	public String getEmailValidationMessage() {
-		return emailField.getDomProperty("validationMessage");
+		return getDomPropertyOfElement(emailField,"validationMessage");
 	}
 
 	public void clearEmailField() {
@@ -251,139 +234,91 @@ public class RegisterPage extends RootPage{
 	}
 
 	public String getPlaceHolderTextFromFirstNameField() {
-		return firstNameField.getDomAttribute("placeholder");
+		return getDomAttributeOfElement(firstNameField,"placeholder");
 	}
 
 	public String getPlaceHolderTextFromLastNameField() {
-		return lastNameField.getDomAttribute("placeholder");
+		return getDomAttributeOfElement(lastNameField,"placeholder");
 	}
 
 	public String getPlaceHolderTextFromEmailField() {
-		return emailField.getDomAttribute("placeholder");
+		return getDomAttributeOfElement(emailField,"placeholder");
 	}
 
 	public String getPlaceHolderTextFromTelephoneField() {
-		return telephoneField.getDomAttribute("placeholder");
+		return getDomAttributeOfElement(telephoneField,"placeholder");
 	}
 
 	public String getPlaceHolderTextFromPasswordField() {
-		return passwordField.getDomAttribute("placeholder");
+		return getDomAttributeOfElement(passwordField,"placeholder");
 	}
 
 	public String getPlaceHolderTextFromPasswordConfirmField() {
-		return passwordConfirmField.getDomAttribute("placeholder");
+		return getDomAttributeOfElement(passwordConfirmField,"placeholder");
 	}
 
 	public String getFirstNameLabelContent(WebDriver driver) {
-		JavascriptExecutor jse = (JavascriptExecutor) driver;
-		String fnContent = (String) jse.executeScript(
-				"return window.getComputedStyle(arguments[0], '::before').getPropertyValue('content');",
-				firstNameLabel);
-		return fnContent;
+		return getCSSPropertyOfPuseudoElement(firstNameLabel,"content");
 	}
 
 	public String getFirstNameLabelColor(WebDriver driver) {
-		JavascriptExecutor jse = (JavascriptExecutor) driver;
-		String fnColor = (String) jse.executeScript(
-				"return window.getComputedStyle(arguments[0], '::before').getPropertyValue('color');", firstNameLabel);
-		return fnColor;
+		return getCSSPropertyOfPuseudoElement(firstNameLabel,"color");
 	}
 
 	public String getLastNameLabelContent(WebDriver driver) {
-		JavascriptExecutor jse = (JavascriptExecutor) driver;
-		String lnContent = (String) jse.executeScript(
-				"return window.getComputedStyle(arguments[0], '::before').getPropertyValue('content');", lastNameLabel);
-		return lnContent;
+		return getCSSPropertyOfPuseudoElement(lastNameLabel,"content");
 	}
 
 	public String getLastNameLabelColor(WebDriver driver) {
-		JavascriptExecutor jse = (JavascriptExecutor) driver;
-		String lnColor = (String) jse.executeScript(
-				"return window.getComputedStyle(arguments[0], '::before').getPropertyValue('color');", lastNameLabel);
-		return lnColor;
+		return getCSSPropertyOfPuseudoElement(lastNameLabel,"color");
 	}
 
 	public String getEmailLabelContent(WebDriver driver) {
-		JavascriptExecutor jse = (JavascriptExecutor) driver;
-		String emailContent = (String) jse.executeScript(
-				"return window.getComputedStyle(arguments[0], '::before').getPropertyValue('content');", emailLabel);
-		return emailContent;
+		return getCSSPropertyOfPuseudoElement(emailLabel,"content");
 	}
 
 	public String getEmailLabelColor(WebDriver driver) {
-		JavascriptExecutor jse = (JavascriptExecutor) driver;
-		String emailColor = (String) jse.executeScript(
-				"return window.getComputedStyle(arguments[0], '::before').getPropertyValue('color');", emailLabel);
-		return emailColor;
+		return getCSSPropertyOfPuseudoElement(emailLabel,"color");
 	}
 
 	public String getTelephoneLabelContent(WebDriver driver) {
-		JavascriptExecutor jse = (JavascriptExecutor) driver;
-		String telephoneContent = (String) jse.executeScript(
-				"return window.getComputedStyle(arguments[0], '::before').getPropertyValue('content');",
-				telephoneLabel);
-		return telephoneContent;
+		return getCSSPropertyOfPuseudoElement(telephoneLabel,"content");
 	}
 
 	public String getTelephoneLabelColor(WebDriver driver) {
-		JavascriptExecutor jse = (JavascriptExecutor) driver;
-		String telephoneColor = (String) jse.executeScript(
-				"return window.getComputedStyle(arguments[0], '::before').getPropertyValue('color');", telephoneLabel);
-		return telephoneColor;
+		return getCSSPropertyOfPuseudoElement(telephoneLabel,"color");
 	}
 
 	public String getPasswordLabelContent(WebDriver driver) {
-		JavascriptExecutor jse = (JavascriptExecutor) driver;
-		String passwordContent = (String) jse.executeScript(
-				"return window.getComputedStyle(arguments[0], '::before').getPropertyValue('content');", passwordLabel);
-		return passwordContent;
+		return getCSSPropertyOfPuseudoElement(passwordLabel,"content");
 	}
 
 	public String getPasswordLabelColor(WebDriver driver) {
-		JavascriptExecutor jse = (JavascriptExecutor) driver;
-		String passwordColor = (String) jse.executeScript(
-				"return window.getComputedStyle(arguments[0], '::before').getPropertyValue('color');", passwordLabel);
-		return passwordColor;
+		return getCSSPropertyOfPuseudoElement(passwordLabel,"color");
 	}
 
 	public String getPasswordConfirmLabelContent(WebDriver driver) {
-		JavascriptExecutor jse = (JavascriptExecutor) driver;
-		String passwordConfirmContent = (String) jse.executeScript(
-				"return window.getComputedStyle(arguments[0], '::before').getPropertyValue('content');",
-				passwordConfirmLabel);
-		return passwordConfirmContent;
+		return getCSSPropertyOfPuseudoElement(passwordConfirmLabel,"content");
 	}
 
 	public String getPasswordConfirmLabelColor(WebDriver driver) {
-		JavascriptExecutor jse = (JavascriptExecutor) driver;
-		String passwordConfirmColor = (String) jse.executeScript(
-				"return window.getComputedStyle(arguments[0], '::before').getPropertyValue('color');",
-				passwordConfirmLabel);
-		return passwordConfirmColor;
+		return getCSSPropertyOfPuseudoElement(passwordConfirmLabel,"color");
 	}
 
 	public String getPrivacyPolicyLabelContent(WebDriver driver) {
-		JavascriptExecutor jse = (JavascriptExecutor) driver;
-		String privacyPolicyContent = (String) jse.executeScript(
-				"return window.getComputedStyle(arguments[0], '::before').getPropertyValue('content');",
-				privacyPolicyLabel);
-		return privacyPolicyContent;
+		return getCSSPropertyOfPuseudoElement(privacyPolicyLabel,"content");
 	}
 
 	public String getPrivacyPolicyLabelColor(WebDriver driver) {
-		JavascriptExecutor jse = (JavascriptExecutor) driver;
-		String privacyPolicyColor = (String) jse.executeScript(
-				"return window.getComputedStyle(arguments[0], '::before').getPropertyValue('color');",
-				privacyPolicyLabel);
-		return privacyPolicyColor;
+		return getCSSPropertyOfPuseudoElement(privacyPolicyLabel,"color");
 	}
 
 	public String getFirstNameFieldHeight() {
-		return firstNameField.getCssValue("height");
+		return getCSSPropertyOfElement(firstNameField,"height");
 	}
 
 	public String getFirstNameFieldWidth() {
-		return firstNameField.getCssValue("width");
+		return getCSSPropertyOfElement(firstNameField,"width");
 	}
 
 	public void clearFirstNameField() {
@@ -391,21 +326,15 @@ public class RegisterPage extends RootPage{
 	}
 
 	public boolean isFirstNameWarningDisplayed() {
-		boolean status = false;
-		try {
-			status = firstNameWarning.isDisplayed();
-		} catch (NoSuchElementException e) {
-			status = false;
-		}
-		return status;
+		return isElementDisplayed(firstNameWarning);
 	}
 
 	public String getLastNameFieldHeight() {
-		return lastNameField.getCssValue("height");
+		return getCSSPropertyOfElement(lastNameField,"height");
 	}
 
 	public String getLastNameFieldWidth() {
-		return lastNameField.getCssValue("width");
+		return getCSSPropertyOfElement(lastNameField,"width");
 	}
 
 	public void clearLastNameField() {
@@ -413,39 +342,27 @@ public class RegisterPage extends RootPage{
 	}
 
 	public boolean isLastNameWarningDisplayed() {
-		boolean status = false;
-		try {
-			status = lastNameWarning.isDisplayed();
-		} catch (NoSuchElementException e) {
-			status = false;
-		}
-		return status;
+		return isElementDisplayed(lastNameWarning);
 	}
 
 	public String getEmailFieldHeight() {
-		return emailField.getCssValue("height");
+		return getCSSPropertyOfElement(emailField,"height");
 	}
 
 	public String getEmailFieldWidth() {
-		return emailField.getCssValue("width");
+		return getCSSPropertyOfElement(emailField,"width");
 	}
 
 	public boolean isEmailWarningDisplayed() {
-		boolean status = false;
-		try {
-			status = emailWarning.isDisplayed();
-		} catch (NoSuchElementException e) {
-			status = false;
-		}
-		return status;
+		return isElementDisplayed(emailWarning);
 	}
 
 	public String getTelephoneFieldHeight() {
-		return telephoneField.getCssValue("height");
+		return getCSSPropertyOfElement(telephoneField,"height");
 	}
 
 	public String getTelephoneFieldWidth() {
-		return telephoneField.getCssValue("width");
+		return getCSSPropertyOfElement(telephoneField,"width");
 	}
 
 	public void clearTelephoneField() {
@@ -453,21 +370,15 @@ public class RegisterPage extends RootPage{
 	}
 
 	public boolean isTelephoneWarningDisplayed() {
-		boolean status = false;
-		try {
-			status = telephoneWarning.isDisplayed();
-		} catch (NoSuchElementException e) {
-			status = false;
-		}
-		return status;
+		return isElementDisplayed(telephoneWarning);
 	}
 
 	public String getPasswordFieldHeight() {
-		return passwordField.getCssValue("height");
+		return getCSSPropertyOfElement(passwordField,"height");
 	}
 
 	public String getPasswordFieldWidth() {
-		return passwordField.getCssValue("width");
+		return getCSSPropertyOfElement(passwordField,"width");
 	}
 
 	public void clearPasswordField() {
@@ -475,34 +386,19 @@ public class RegisterPage extends RootPage{
 	}
 
 	public boolean isPasswordWarningDisplayed() {
-		boolean status = false;
-		try {
-			status = passwordWarning.isDisplayed();
-		} catch (NoSuchElementException e) {
-			status = false;
-		}
-		return status;
+		return isElementDisplayed(passwordWarning);
 	}
 
 	public boolean isPasswordWarningDisplayedAndMatch(String expectedWarning) {
-		boolean state = false;
-		try {
-			String acutalWarning = getPasswordWarning();
-			if (acutalWarning.equals(expectedWarning)) {
-				state = true;
-			}
-		} catch (NoSuchElementException e) {
-			state = false;
-		}
-		return state;
+		return isTextMatching(expectedWarning,getPasswordWarning());
 	}
 
 	public String getPasswordConfirmFieldHeight() {
-		return passwordConfirmField.getCssValue("height");
+		return getCSSPropertyOfElement(passwordConfirmField,"height");
 	}
 
 	public String getPasswordConfirmFieldWidth() {
-		return passwordConfirmField.getCssValue("width");
+		return getCSSPropertyOfElement(passwordConfirmField,"width");
 	}
 
 	public void clearPasswordConfirmField() {
@@ -510,25 +406,19 @@ public class RegisterPage extends RootPage{
 	}
 
 	public boolean isPasswordConfirmWarningDisplayed() {
-		boolean status = false;
-		try {
-			status = passwordConfirmWarning.isDisplayed();
-		} catch (NoSuchElementException e) {
-			status = false;
-		}
-		return status;
+		return isElementDisplayed(passwordConfirmWarning);
 	}
-	
+
 	public boolean isPrivacyPolicySelected() {
-		return privacyPolicyField.isSelected();
+		return isElementSelected(privacyPolicyField);
 	}
-	
+
 	public String getPasswordFieldType() {
-		return passwordField.getDomAttribute("type");
+		return getDomAttributeOfElement(passwordField,"type");
 	}
-	
+
 	public String getPasswordConfirmFieldType() {
-		return passwordConfirmField.getDomAttribute("type");
+		return getDomAttributeOfElement(passwordConfirmField,"type");
 	}
 
 }

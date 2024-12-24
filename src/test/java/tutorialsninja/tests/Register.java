@@ -1,37 +1,16 @@
 package tutorialsninja.tests;
 
-import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.HashMap;
-import java.util.Properties;
-
-import javax.mail.Flags;
-import javax.mail.Folder;
-import javax.mail.Message;
-import javax.mail.Session;
-import javax.mail.Store;
+import java.io.*;
+import java.sql.*;
+import java.util.*;
+import javax.mail.*;
 import javax.mail.search.FlagTerm;
-
-import org.openqa.selenium.Keys;
+import org.openqa.selenium.*;
 import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 import org.testng.asserts.SoftAssert;
-
-import pages.AccountSuccessPage;
-import pages.FooterOptions;
-import pages.HeaderOptions;
-import pages.LandingPage;
-import pages.RegisterPage;
-import pages.RightColumnOptions;
+import pages.*;
 import tutorialsninja.base.Base;
 import utils.CommonUtils;
 import utils.MyXLSReader;
@@ -41,7 +20,6 @@ public class Register extends Base {
 	public WebDriver driver;
 	Properties prop;
 	
-
 	@BeforeMethod
 	public void setup() {
 
@@ -271,14 +249,12 @@ public class Register extends Base {
 	public void verifyNavigatingToRegisterAccountUsingMultipleWay() {
 
 		Assert.assertTrue(registerPage.didWeNavigateToRegisterAccountPage());
-		driver = registerPage.getDriver();
-		headerOptions = new HeaderOptions(driver);
+		headerOptions = new HeaderOptions(registerPage.getDriver());
 		headerOptions.clickOnMyAccountDropMenu();
 		loginPage = headerOptions.selectLoginOption();
 		loginPage.clickOnContinueButton();
 		Assert.assertTrue(registerPage.didWeNavigateToRegisterAccountPage());
-		driver = registerPage.getDriver();
-		headerOptions = new HeaderOptions(driver);
+		headerOptions = new HeaderOptions(registerPage.getDriver());
 		headerOptions.clickOnMyAccountDropMenu();
 		loginPage = headerOptions.selectLoginOption();
 		loginPage.clickOnRegisterOption();
@@ -924,36 +900,31 @@ public class Register extends Base {
 		driver = navigateBack(driver);
 
 		registerPage = new RegisterPage(driver);
-		driver = registerPage.getDriver();
-		headerOptions = new HeaderOptions(driver);
+		headerOptions = new HeaderOptions(registerPage.getDriver());
 		loginPage = headerOptions.selectHeartIconOption();
 		Assert.assertTrue(loginPage.didWeNaviateToLoginPage());
 		driver = navigateBack(driver);
 
 		registerPage = new RegisterPage(driver);
-		driver = registerPage.getDriver();
-		headerOptions = new HeaderOptions(driver);
+		headerOptions = new HeaderOptions(registerPage.getDriver());
 		shoppingCartPage = headerOptions.selectShoppingCartOption();
 		Assert.assertTrue(shoppingCartPage.didWeNaviateToShoppingCartPage());
 		driver = navigateBack(driver);
 
 		registerPage = new RegisterPage(driver);
-		driver = registerPage.getDriver();
-		headerOptions = new HeaderOptions(driver);
+		headerOptions = new HeaderOptions(registerPage.getDriver());
 		shoppingCartPage = headerOptions.selectCheckoutOption();
 		Assert.assertTrue(shoppingCartPage.didWeNaviateToShoppingCartPage());
 		driver = navigateBack(driver);
 
 		registerPage = new RegisterPage(driver);
-		driver = registerPage.getDriver();
-		headerOptions = new HeaderOptions(driver);
+		headerOptions = new HeaderOptions(registerPage.getDriver());
 		headerOptions.selectLogoOption();
 		Assert.assertEquals(driver.getCurrentUrl(), prop.getProperty("landingPageURL"));
 		driver = navigateBack(driver);
 
 		registerPage = new RegisterPage(driver);
-		driver = registerPage.getDriver();
-		headerOptions = new HeaderOptions(driver);
+		headerOptions = new HeaderOptions(registerPage.getDriver());
 		searchPage = headerOptions.clickOnSearchButton();
 		Assert.assertTrue(searchPage.didWeNavigateToSearchPage());
 		driver = navigateBack(driver);
@@ -963,15 +934,13 @@ public class Register extends Base {
 		Assert.assertTrue(registerPage.didWeNavigateToRegisterAccountPage());
 
 		registerPage = new RegisterPage(driver);
-		driver = registerPage.getDriver();
-		headerOptions = new HeaderOptions(driver);
+		headerOptions = new HeaderOptions(registerPage.getDriver());
 		loginPage = headerOptions.clickOnAccountBreadcrumb();
 		Assert.assertTrue(loginPage.didWeNaviateToLoginPage());
 		driver = navigateBack(driver);
 
 		registerPage = new RegisterPage(driver);
-		driver = registerPage.getDriver();
-		headerOptions = new HeaderOptions(driver);
+		headerOptions = new HeaderOptions(registerPage.getDriver());
 		landingPage = headerOptions.clickOnHomeBreadcrumb();
 		Assert.assertEquals(getPageURL(driver), prop.getProperty("landingPageURL"));
 		driver = navigateBack(driver);
@@ -991,196 +960,168 @@ public class Register extends Base {
 		Assert.assertTrue(registerPage.didWeNavigateToRegisterAccountPage());
 
 		registerPage = new RegisterPage(driver);
-		driver = registerPage.getDriver();
-		rightColumnOptions = new RightColumnOptions(driver);
+		rightColumnOptions = new RightColumnOptions(registerPage.getDriver());
 		loginPage = rightColumnOptions.clickOnRightSideLoginOption();
 		Assert.assertTrue(loginPage.didWeNaviateToLoginPage());
 		driver = navigateBack(driver);
 
 		registerPage = new RegisterPage(driver);
-		driver = registerPage.getDriver();
-		rightColumnOptions = new RightColumnOptions(driver);
+		rightColumnOptions = new RightColumnOptions(registerPage.getDriver());
 		registerPage = rightColumnOptions.clickOnRightSideRegisterOption();
 		Assert.assertTrue(registerPage.didWeNavigateToRegisterAccountPage());
 
 		registerPage = new RegisterPage(driver);
-		driver = registerPage.getDriver();
-		rightColumnOptions = new RightColumnOptions(driver);
+		rightColumnOptions = new RightColumnOptions(registerPage.getDriver());
 		forgottenPasswordPage = rightColumnOptions.clickOnRightSideForgottenPasswordOption();
 		Assert.assertTrue(forgottenPasswordPage.didWeNavigateToForgottendPasswordPage());
 		driver = navigateBack(driver);
 
 		registerPage = new RegisterPage(driver);
-		driver = registerPage.getDriver();
-		rightColumnOptions = new RightColumnOptions(driver);
+		rightColumnOptions = new RightColumnOptions(registerPage.getDriver());
 		loginPage = rightColumnOptions.clickOnRightSideMyAccountOption();
 		Assert.assertTrue(loginPage.didWeNaviateToLoginPage());
 		driver = navigateBack(driver);
 
 		registerPage = new RegisterPage(driver);
-		driver = registerPage.getDriver();
-		rightColumnOptions = new RightColumnOptions(driver);
+		rightColumnOptions = new RightColumnOptions(registerPage.getDriver());
 		rightColumnOptions.clickOnRightSideAddressBookOption();
 		Assert.assertTrue(loginPage.didWeNaviateToLoginPage());
 		driver = navigateBack(driver);
 
 		registerPage = new RegisterPage(driver);
-		driver = registerPage.getDriver();
-		rightColumnOptions = new RightColumnOptions(driver);
+		rightColumnOptions = new RightColumnOptions(registerPage.getDriver());
 		rightColumnOptions.clickOnRightSideWishListOption();
 		Assert.assertTrue(loginPage.didWeNaviateToLoginPage());
 		driver = navigateBack(driver);
 
 		registerPage = new RegisterPage(driver);
-		driver = registerPage.getDriver();
-		rightColumnOptions = new RightColumnOptions(driver);
+		rightColumnOptions = new RightColumnOptions(registerPage.getDriver());
 		rightColumnOptions.clickOnRightSideOrderHistoryOption();
 		Assert.assertTrue(loginPage.didWeNaviateToLoginPage());
 		driver = navigateBack(driver);
 
 		registerPage = new RegisterPage(driver);
-		driver = registerPage.getDriver();
-		rightColumnOptions = new RightColumnOptions(driver);
+		rightColumnOptions = new RightColumnOptions(registerPage.getDriver());
 		rightColumnOptions.clickOnRightSideDownloadsOption();
 		Assert.assertTrue(loginPage.didWeNaviateToLoginPage());
 		driver = navigateBack(driver);
 
 		registerPage = new RegisterPage(driver);
-		driver = registerPage.getDriver();
-		rightColumnOptions = new RightColumnOptions(driver);
+		rightColumnOptions = new RightColumnOptions(registerPage.getDriver());
 		rightColumnOptions.clickOnRightSideRecurringPaymentsOption();
 		Assert.assertTrue(loginPage.didWeNaviateToLoginPage());
 		driver = navigateBack(driver);
 
 		registerPage = new RegisterPage(driver);
-		driver = registerPage.getDriver();
-		rightColumnOptions = new RightColumnOptions(driver);
+		rightColumnOptions = new RightColumnOptions(registerPage.getDriver());
 		rightColumnOptions.clickOnRightSideRewardPointsOption();
 		Assert.assertTrue(loginPage.didWeNaviateToLoginPage());
 		driver = navigateBack(driver);
 
 		registerPage = new RegisterPage(driver);
-		driver = registerPage.getDriver();
-		rightColumnOptions = new RightColumnOptions(driver);
+		rightColumnOptions = new RightColumnOptions(registerPage.getDriver());
 		rightColumnOptions.clickOnRightSideReturnsOption();
 		Assert.assertTrue(loginPage.didWeNaviateToLoginPage());
 		driver = navigateBack(driver);
 
 		registerPage = new RegisterPage(driver);
-		driver = registerPage.getDriver();
-		rightColumnOptions = new RightColumnOptions(driver);
+		rightColumnOptions = new RightColumnOptions(registerPage.getDriver());
 		rightColumnOptions.clickOnRightSideTransactionsOption();
 		Assert.assertTrue(loginPage.didWeNaviateToLoginPage());
 		driver = navigateBack(driver);
 
 		registerPage = new RegisterPage(driver);
-		driver = registerPage.getDriver();
-		rightColumnOptions = new RightColumnOptions(driver);
+		rightColumnOptions = new RightColumnOptions(registerPage.getDriver());
 		rightColumnOptions.clickOnRightSideNewsletterOption();
 		Assert.assertTrue(loginPage.didWeNaviateToLoginPage());
 		driver = navigateBack(driver);
 
 		registerPage = new RegisterPage(driver);
-		driver = registerPage.getDriver();
-		footerOptions = new FooterOptions(driver);
+		footerOptions = new FooterOptions(registerPage.getDriver());
 		aboutUsPage = footerOptions.clickOnAboutUsFooterOption();
 		Assert.assertTrue(aboutUsPage.didWeNavigateToAboutUsBreadcrumb());
 		driver = navigateBack(driver);
 
 		registerPage = new RegisterPage(driver);
-		driver = registerPage.getDriver();
-		footerOptions = new FooterOptions(driver);
+		footerOptions = new FooterOptions(registerPage.getDriver());
 		deliveryInformationPage = footerOptions.clickOnDeliveryInformationFooterOption();
 		Assert.assertTrue(deliveryInformationPage.didWeNavigateToDeliveryInformationPage());
 		driver = navigateBack(driver);
 
 		registerPage = new RegisterPage(driver);
-		driver = registerPage.getDriver();
-		footerOptions = new FooterOptions(driver);
+		footerOptions = new FooterOptions(registerPage.getDriver());
 		privacyPolicyPage = footerOptions.clickOnPrivacyPolicyFooterOption();
 		Assert.assertTrue(privacyPolicyPage.didWeNavigateToPrivacyPolicyPage());
 		driver = navigateBack(driver);
 
 		registerPage = new RegisterPage(driver);
-		driver = registerPage.getDriver();
-		footerOptions = new FooterOptions(driver);
+		footerOptions = new FooterOptions(registerPage.getDriver());
 		termsAndConditionsPage = footerOptions.clickOnTermsAndConditionsFooterOption();
 		Assert.assertTrue(termsAndConditionsPage.didWeNavigateToTermsAndConditionsPage());
 		driver = navigateBack(driver);
 
 		registerPage = new RegisterPage(driver);
-		driver = registerPage.getDriver();
-		footerOptions = new FooterOptions(driver);
+		footerOptions = new FooterOptions(registerPage.getDriver());
 		contactUsPage = footerOptions.clickOnContactUsFooterOption();
 		Assert.assertTrue(contactUsPage.didWeNavigateToContactUsPage());
 		driver = navigateBack(driver);
 
 		registerPage = new RegisterPage(driver);
-		driver = registerPage.getDriver();
-		footerOptions = new FooterOptions(driver);
+		footerOptions = new FooterOptions(registerPage.getDriver());
 		productReturnsPage = footerOptions.clickOnReturnsFooterOption();
 		Assert.assertTrue(productReturnsPage.didWeNavigateToProductReturnsPage());
 		driver = navigateBack(driver);
 
 		registerPage = new RegisterPage(driver);
-		driver = registerPage.getDriver();
-		footerOptions = new FooterOptions(driver);
+		footerOptions = new FooterOptions(registerPage.getDriver());
 		siteMapPage = footerOptions.clickOnSiteMapFooterOption();
 		Assert.assertTrue(siteMapPage.didWeNavigateToSiteMapPage());
 		driver = navigateBack(driver);
 
 		registerPage = new RegisterPage(driver);
-		driver = registerPage.getDriver();
-		footerOptions = new FooterOptions(driver);
+		footerOptions = new FooterOptions(registerPage.getDriver());
 		brandPage = footerOptions.clickOnBrandsFooterOption();
 		Assert.assertTrue(brandPage.didWeNavigateToBrandsPage());
 		driver = navigateBack(driver);
 
 		registerPage = new RegisterPage(driver);
-		driver = registerPage.getDriver();
-		footerOptions = new FooterOptions(driver);
+		footerOptions = new FooterOptions(registerPage.getDriver());
 		giftCertificatePage = footerOptions.clickOnGiftCertificateFooterOption();
 		Assert.assertTrue(giftCertificatePage.didWeNavigateToGiftCertificatePage());
 		driver = navigateBack(driver);
 
 		registerPage = new RegisterPage(driver);
-		driver = registerPage.getDriver();
-		footerOptions = new FooterOptions(driver);
+		footerOptions = new FooterOptions(registerPage.getDriver());
 		affiliateLoginPage = footerOptions.clickOnAffiliateFooterOption();
 		Assert.assertEquals(driver.getCurrentUrl(), prop.getProperty("affiliateLoginPageURL"));
 		driver = navigateBack(driver);
 
 		registerPage = new RegisterPage(driver);
-		driver = registerPage.getDriver();
-		footerOptions = new FooterOptions(driver);
+		footerOptions = new FooterOptions(registerPage.getDriver());
 		specialOffersPage = footerOptions.clickOnSpecialsFooterOption();
 		Assert.assertTrue(specialOffersPage.didWeNavigateToSpecialOffersPage());
 		driver = navigateBack(driver);
 
 		registerPage = new RegisterPage(driver);
-		driver = registerPage.getDriver();
-		footerOptions = new FooterOptions(driver);
+		footerOptions = new FooterOptions(registerPage.getDriver());
 		loginPage = footerOptions.clickOnMyAccountFooterOption();
 		Assert.assertTrue(loginPage.didWeNaviateToLoginPage());
 		driver = navigateBack(driver);
 
 		registerPage = new RegisterPage(driver);
-		driver = registerPage.getDriver();
-		footerOptions = new FooterOptions(driver);
+		footerOptions = new FooterOptions(registerPage.getDriver());
 		loginPage = footerOptions.clickOnOrderHistoryFooterOption();
 		Assert.assertTrue(loginPage.didWeNaviateToLoginPage());
 		driver = navigateBack(driver);
 
 		registerPage = new RegisterPage(driver);
-		driver = registerPage.getDriver();
-		footerOptions = new FooterOptions(driver);
+		footerOptions = new FooterOptions(registerPage.getDriver());
 		loginPage = footerOptions.clickOnWishListFooterOption();
 		Assert.assertTrue(loginPage.didWeNaviateToLoginPage());
 		driver = navigateBack(driver);
 
 		registerPage = new RegisterPage(driver);
-		driver = registerPage.getDriver();
-		footerOptions = new FooterOptions(driver);
+		footerOptions = new FooterOptions(registerPage.getDriver());
 		loginPage = footerOptions.clickOnNewsletterFooterOption();
 		Assert.assertTrue(loginPage.didWeNaviateToLoginPage());
 		driver = navigateBack(driver);

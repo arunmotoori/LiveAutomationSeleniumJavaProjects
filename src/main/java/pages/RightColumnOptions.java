@@ -1,10 +1,7 @@
 package pages;
 
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
-
+import org.openqa.selenium.*;
+import org.openqa.selenium.support.*;
 import pages.root.RootPage;
 
 public class RightColumnOptions extends RootPage{
@@ -53,6 +50,18 @@ public class RightColumnOptions extends RootPage{
 	
 	@FindBy(xpath="//a[@class='list-group-item'][text()='Newsletter']")
 	private WebElement rightSideNewsletterOption;
+	
+	@FindBy(xpath="//a[@class='list-group-item'][text()='Logout']")
+	private WebElement logoutOption;
+	
+	public boolean isLogoutRightColumnOptionAvailable() {
+		return isElementDisplayed(logoutOption);
+	}
+	
+	public AccountLogoutPage clickOnRightSideLogoutOption() {
+		logoutOption.click();
+		return new AccountLogoutPage(driver);
+	}
 	
 	public LoginPage clickOnRightSideNewsletterOption() {
 		rightSideNewsletterOption.click();

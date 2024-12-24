@@ -1,46 +1,43 @@
 package pages;
 
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
-
+import org.openqa.selenium.*;
+import org.openqa.selenium.support.*;
 import pages.root.RootPage;
 
-public class EditAccountInformationPage extends RootPage{
-	
+public class EditAccountInformationPage extends RootPage {
+
 	public EditAccountInformationPage(WebDriver driver) {
 		super(driver);
 		this.driver = driver;
-		PageFactory.initElements(driver,this);
+		PageFactory.initElements(driver, this);
 	}
-	
-	@FindBy(id="input-firstname")
+
+	@FindBy(id = "input-firstname")
 	private WebElement firstNameField;
-	
-	@FindBy(id="input-lastname")
+
+	@FindBy(id = "input-lastname")
 	private WebElement lastNameField;
-	
-	@FindBy(id="input-email")
+
+	@FindBy(id = "input-email")
 	private WebElement emailField;
-	
-	@FindBy(id="input-telephone")
+
+	@FindBy(id = "input-telephone")
 	private WebElement telephoneField;
-	
+
 	public String getFirstNameFieldValue() {
-		return firstNameField.getDomAttribute("value");
+		return getDomAttributeOfElement(firstNameField,"value");
 	}
-	
+
 	public String getLastNameFieldValue() {
-		return lastNameField.getDomAttribute("value");
+		return getDomAttributeOfElement(lastNameField,"value");
 	}
-	
+
 	public String getEmailFieldValue() {
-		return emailField.getDomAttribute("value");
+		return getDomAttributeOfElement(emailField,"value");
 	}
-	
+
 	public String getTelephoneFieldValue() {
-		return telephoneField.getDomAttribute("value");
+		return getDomAttributeOfElement(telephoneField,"value");
 	}
-	
+
 }

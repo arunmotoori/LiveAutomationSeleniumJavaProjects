@@ -1,10 +1,7 @@
 package pages;
 
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
-
+import org.openqa.selenium.*;
+import org.openqa.selenium.support.*;
 import pages.root.RootPage;
 
 public class LandingPage extends RootPage{
@@ -23,6 +20,31 @@ public class LandingPage extends RootPage{
 	
 	@FindBy(linkText="Login")
 	private WebElement loginOption;
+	
+	@FindBy(name="search")
+	private WebElement searchBoxField;
+	
+	@FindBy(xpath="//button[@class='btn btn-default btn-lg']")
+	private WebElement searchButton;
+	
+	public SearchPage clickOnSearchButton() {
+		searchButton.click();
+		return new SearchPage(driver);
+	}
+	
+	public void enterProductNameIntoIntoSearchBoxFiled(String productNameText) {
+		searchBoxField.sendKeys(productNameText);
+	}
+	
+	public RegisterPage navigateToRegisterPage() {
+		clickOnMyAccount();
+		return selectRegisterOption();
+	}
+	
+	public LoginPage navigateToLoginPage() {
+		clickOnMyAccount();
+		return selectLoginOption();
+	}
 	
 	public LoginPage selectLoginOption() {
 		loginOption.click();
