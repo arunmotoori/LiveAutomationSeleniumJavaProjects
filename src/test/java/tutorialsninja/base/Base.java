@@ -30,6 +30,8 @@ import pages.LandingPage;
 import pages.LoginPage;
 import pages.NewsletterPage;
 import pages.PrivacyPolicyPage;
+import pages.ProductComparisonPage;
+import pages.ProductDisplayPage;
 import pages.ProductReturnsPage;
 import pages.RegisterPage;
 import pages.RightColumnOptions;
@@ -73,6 +75,8 @@ public class Base {
 	public FooterOptions footerOptions;
 	public ChangePasswordPage changePasswordPage;
 	public AccountLogoutPage accountLogoutPage;
+	public ProductDisplayPage productDisplayPage;
+	public ProductComparisonPage productComparisonPage;
 
 	public WebDriver openBrowserAndApplication() {
 
@@ -108,19 +112,7 @@ public class Base {
 		driver.navigate().back();
 		return driver;
 	}
-	
-	public WebDriver pressKeyMultipleTimes(WebDriver driver,Keys keyName,int count) {
-		
-		Actions actions = new Actions(driver);
-		
-		for(int i=1;i<=count;i++) {
-			actions.sendKeys(keyName).perform();
-		}
-		
-		return driver;
-		
-	}
-	
+
 	public WebDriver enterDetailsIntoRegisterAccountPageFields(WebDriver driver) {
 		
 		prop = CommonUtils.loadProperties();

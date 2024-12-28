@@ -63,5 +63,13 @@ public class LandingPage extends RootPage{
 		elementUtils.clickOnElement(registerOption);
 		return new RegisterPage(driver);
 	}
+	
+	public SearchPage searchForAProductUsingKeyboardKeys(String productName) {
+		driver = elementUtils.pressKeyMultipleTimes(driver,Keys.TAB,8);
+		elementUtils.enterTextIntoFieldUsingKeyboardKeys(driver,productName);
+		elementUtils.pressKeyboardKey(Keys.TAB);
+		elementUtils.pressKeyboardKey(Keys.ENTER);
+		return new SearchPage(driver);
+	}
 
 }

@@ -83,6 +83,19 @@ public class ElementUtils {
 		return text;
 	}
 
+	public String getTextOfElementWithSomeDelay(WebElement element, int milliseconds) {
+		String text = "";
+		try {
+			Thread.sleep(milliseconds);
+			text = element.getText();
+		} catch (NoSuchElementException e) {
+			text = "";
+		} catch (Exception e) {
+			text = "";
+		}
+		return text;
+	}
+
 	public String getDomAttributeOfElement(WebElement element, String attribute) {
 		String text = "";
 		try {
@@ -123,9 +136,9 @@ public class ElementUtils {
 		actions.keyDown(key).perform();
 	}
 
-	public void pressKeyboardKey(String keyText) {
+	public void pressKeyboardKey(Keys key) {
 		Actions actions = new Actions(driver);
-		actions.sendKeys(keyText).perform();
+		actions.sendKeys(key).perform();
 	}
 
 	public void releaseKeyboardKey(Keys key) {
@@ -195,6 +208,13 @@ public class ElementUtils {
 		}
 	}
 
+	public void selectOptionInDropDownFieldUsingOptionText(WebElement element, String optionText) {
+		if (isElementDisplayed(element) && isElementEnabled(element)) {
+			Select select = new Select(element);
+			select.selectByVisibleText(optionText);
+		}
+	}
+
 	public int getElementCount(List<WebElement> elements) {
 		int n = 0;
 		try {
@@ -205,5 +225,25 @@ public class ElementUtils {
 			n = 0;
 		}
 		return n;
+	}
+
+	public WebDriver pressKeyMultipleTimes(WebDriver driver, Keys keyName, int count) {
+
+		Actions actions = new Actions(driver);
+
+		for (int i = 1; i <= count; i++) {
+			actions.sendKeys(keyName).perform();
+		}
+
+		return driver;
+
+	}
+
+	public WebDriver enterTextIntoFieldUsingKeyboardKeys(WebDriver driver, String text) {
+
+		Actions actions = new Actions(driver);
+		actions.sendKeys(text).perform();
+		return driver;
+
 	}
 }

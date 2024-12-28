@@ -389,7 +389,7 @@ public class Register extends Base {
 	@Test(priority = 12)
 	public void verifyRegisteringAccountUsingKeyboardKeys() {
 
-		driver = pressKeyMultipleTimes(driver, Keys.TAB, 23);
+		driver = registerPage.pressKeyMultipleTimes(driver, Keys.TAB, 23);
 		driver = enterDetailsIntoRegisterAccountPageFields(driver);
 		accountSuccessPage = new AccountSuccessPage(driver);
 		Assert.assertTrue(accountSuccessPage.isUserLoggedIn());

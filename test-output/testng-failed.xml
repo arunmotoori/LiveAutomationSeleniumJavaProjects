@@ -3,19 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="tutorialsninja.tests.Register">
+      <class name="tutorialsninja.tests.Search">
         <methods>
+          <include name="tearDown"/>
           <include name="setup"/>
-          <include name="verifyConfirmationEmail"/>
-          <include name="verifyLeadingAndTrailingSpacesWhileRegisteringAccount"/>
-          <include name="verifyRegisteringAccountFieldsHeightWidthAligment"/>
-          <include name="teardown"/>
-          <include name="verifyDataTestingOfRegisteringAccount"/>
-          <include name="verifyRegisteringAccountAndCheckingPasswordComplexityStandards" invocation-numbers="0 1 2 3 4"/>
-          <include name="verifyMandatoryFieldsSymbolAndColorInRegisterAccountPage"/>
-          <include name="verifyRegisterAccountByProvidingInvalidTelephoneNumber"/>
+          <include name="verifySortingProductsInSearchResultsPage"/>
         </methods>
-      </class> <!-- tutorialsninja.tests.Register -->
+      </class> <!-- tutorialsninja.tests.Search -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -18,7 +18,15 @@ public class SiteMapPage extends RootPage {
 
 	@FindBy(xpath = "//ul[@class='breadcrumb']//a[text()='Site Map']")
 	private WebElement siteMapPageBreadcrumb;
-
+	
+	@FindBy(linkText="Search")
+	private WebElement searchLink;
+	
+	public SearchPage clickOnSearchLink() {
+		elementUtils.clickOnElement(searchLink);
+		return new SearchPage(driver);
+	}
+	
 	public boolean didWeNavigateToSiteMapPage() {
 		return elementUtils.isElementDisplayed(siteMapPageBreadcrumb);
 	}

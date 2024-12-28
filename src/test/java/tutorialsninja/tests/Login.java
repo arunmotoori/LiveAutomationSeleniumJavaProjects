@@ -96,7 +96,8 @@ public class Login extends Base {
 	@Test(priority = 7)
 	public void verifyLoggingIntoTheApplicationUsingKeyboardKeys() throws InterruptedException {
 
-		driver = pressKeyMultipleTimes(driver, Keys.TAB, 23);
+		
+		driver = landingPage.pressKeyMultipleTimes(driver, Keys.TAB, 23);
 		driver = enterDetailsIntoLoginPageFields(driver);
 		accountPage = new AccountPage(driver);
 		Assert.assertTrue(accountPage.isUserLoggedIn());
