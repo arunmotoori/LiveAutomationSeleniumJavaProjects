@@ -253,20 +253,20 @@ public class Search extends Base {
 		Assert.assertEquals(searchPage.getFourthProductName(), "iMac");
 
 	}
-	
+
 	@Test(priority = 15)
 	public void verifyNavigatingToSearchPageFromSiteMapPage() {
-		
+
 		footerOptions = new FooterOptions(landingPage.getDriver());
 		siteMapPage = footerOptions.clickOnSiteMapFooterOption();
 		searchPage = siteMapPage.clickOnSearchLink();
 		Assert.assertTrue(searchPage.didWeNavigateToSearchPage());
-		
+
 	}
-	
+
 	@Test(priority = 16)
 	public void verifySearchPageBreadcrumb() {
-		
+
 		headerOptions = new HeaderOptions(landingPage.getDriver());
 		headerOptions.enterProductIntoSearchBoxField(prop.getProperty("existingProduct"));
 		searchPage = headerOptions.clickOnSearchButton();
@@ -274,23 +274,25 @@ public class Search extends Base {
 		Assert.assertTrue(searchPage.didWeNavigateToSearchPage());
 		headerOptions = new HeaderOptions(searchPage.getDriver());
 		landingPage = headerOptions.clickOnHomeBreadcrumb();
-		Assert.assertEquals(getPageURL(landingPage.getDriver()),prop.getProperty("landingPageURL"));
-		
+		Assert.assertEquals(getPageURL(landingPage.getDriver()), prop.getProperty("landingPageURL"));
+
 	}
-	
+
 	@Test(priority = 17)
-	public void verifySearchFunctionalityUsageByUsingKeyboardKeys() throws InterruptedException  {
-		
+	public void verifySearchFunctionalityUsageByUsingKeyboardKeys() throws InterruptedException {
+
 		searchPage = landingPage.searchForAProductUsingKeyboardKeys(prop.getProperty("exitingProuductInSubCategory"));
 		Assert.assertTrue(searchPage.didWeNavigateToSearchPage());
 		Assert.assertTrue(searchPage.getNumberOfProductsDisplayedInSearchResults() == 1);
-		searchPage = searchPage.searchUsingSearchCriteriaFieldInSearchResultsPageUsingKeyboardKeys(prop.getProperty("existingSampleTermResultingInMultipleProducts"));
+		searchPage = searchPage.searchUsingSearchCriteriaFieldInSearchResultsPageUsingKeyboardKeys(
+				prop.getProperty("existingSampleTermResultingInMultipleProducts"));
 		Assert.assertTrue(searchPage.getNumberOfProductsDisplayedInSearchResults() == 4);
 		searchPage = searchPage.verifySearchingByCategoryUsingKeyboardKeys();
 		Assert.assertTrue(searchPage.getNumberOfProductsDisplayedInSearchResults() == 2);
 		searchPage = searchPage.verifySearchingInSubcategoriesUsingKeyboardKeys();
 		Assert.assertTrue(searchPage.getNumberOfProductsDisplayedInSearchResults() == 3);
-		searchPage = searchPage.verifySearchingUsingDescriptionUsingKeyboardKeys(prop.getProperty("termInProductDescription"));
+		searchPage = searchPage
+				.verifySearchingUsingDescriptionUsingKeyboardKeys(prop.getProperty("termInProductDescription"));
 		Assert.assertTrue(searchPage.getNumberOfProductsDisplayedInSearchResults() == 1);
 		searchPage = searchPage.verifySearchingInListViewUsingKeyboardKeys();
 		Assert.assertTrue(searchPage.getNumberOfProductsDisplayedInSearchResults() == 1);
@@ -304,9 +306,46 @@ public class Search extends Base {
 		Assert.assertTrue(searchPage.getNumberOfProductsDisplayedInSearchResults() == 1);
 		searchPage = searchPage.verifyProductsCountInSearchPageUsingKeyboardKeys();
 		Assert.assertTrue(searchPage.getNumberOfProductsDisplayedInSearchResults() == 1);
+
+	}
+
+	@Test(priority = 18)
+	public void verifySearchFunctionalityHeadingURLAndTitle() {
+
+		searchPage = landingPage.clickOnSearchButton();
+		Assert.assertEquals(searchPage.getPageHeading(), prop.getProperty("searchPageHeading"));
+		Assert.assertEquals(getPageTitle(searchPage.getDriver()), prop.getProperty("searchPageHeading"));
+		Assert.assertEquals(getPageURL(searchPage.getDriver()), prop.getProperty("searchPageURL"));
+
+	}
+
+	@Test(priority=19)
+	public void verifySearchFunctionalityUI() {
 		
+		searchPage = landingPage.clickOnSearchButton();
+		if(prop.getProperty("browserName").equals("chrome")) {
+			CommonUtils.takeScreenshot(searchPage.getDriver(),"\\Screenshots\\actualChromeSearchPageUI.png");
+			Assert.assertFalse(CommonUtils.compareTwoScreenshots("\\Screenshots\\actualChromeSearchPageUI.png","\\Screenshots\\expectedChromeSearchPageUI.png"));
+		}else if(prop.getProperty("browserName").equals("firefox")) {
+			CommonUtils.takeScreenshot(searchPage.getDriver(),"\\Screenshots\\actualFirefoxSearchPageUI.png");
+			Assert.assertFalse(CommonUtils.compareTwoScreenshots("\\Screenshots\\actualFirefoxSearchPageUI.png","\\Screenshots\\expectedFirefoxSearchPageUI.png"));
+		}else if(prop.getProperty("browserName").equals("edge")) {
+			CommonUtils.takeScreenshot(searchPage.getDriver(),"\\Screenshots\\actualEdgeSearchPageUI.png");
+			Assert.assertFalse(CommonUtils.compareTwoScreenshots("\\Screenshots\\actualEdgeSearchPageUI.png","\\Screenshots\\expectedEdgeSearchPageUI.png"));
+		}
 	}
 	
-	
+	@Test(priority=20)
+	public void verifySearchInAllEnviornments() {
+		
+		landingPage.enterProductNameIntoIntoSearchBoxFiled(prop.getProperty("existingProduct"));
+		searchPage = landingPage.clickOnSearchButton();
+		Assert.assertTrue(searchPage.didWeNavigateToSearchPage());
+		Assert.assertTrue(searchPage.isExistingProductDisplayedInSearchResults());
+		
+	}
+
 
 }
+
+

@@ -2,20 +2,20 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-12-28T18:41:14 IST" name="Default suite" finished-at="2024-12-28T18:41:37 IST" duration-ms="22425">
+  <suite started-at="2024-12-30T16:16:01 IST" name="Default suite" finished-at="2024-12-30T16:16:08 IST" duration-ms="7159">
     <groups>
     </groups>
-    <test started-at="2024-12-28T18:41:14 IST" name="Default test" finished-at="2024-12-28T18:41:37 IST" duration-ms="22425">
+    <test started-at="2024-12-30T16:16:01 IST" name="Default test" finished-at="2024-12-30T16:16:08 IST" duration-ms="7159">
       <class name="tutorialsninja.tests.Search">
-        <test-method is-config="true" signature="setup()[pri:0, instance:tutorialsninja.tests.Search@19e4653c]" started-at="2024-12-28T18:41:14 IST" name="setup" finished-at="2024-12-28T18:41:18 IST" duration-ms="3993" status="PASS">
+        <test-method is-config="true" signature="setup()[pri:0, instance:tutorialsninja.tests.Search@5149d738]" started-at="2024-12-30T16:16:01 IST" name="setup" finished-at="2024-12-30T16:16:06 IST" duration-ms="4715" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="verifySearchFunctionalityUsageByUsingKeyboardKeys()[pri:17, instance:tutorialsninja.tests.Search@19e4653c]" started-at="2024-12-28T18:41:18 IST" name="verifySearchFunctionalityUsageByUsingKeyboardKeys" finished-at="2024-12-28T18:41:36 IST" duration-ms="17988" status="PASS">
+        <test-method signature="verifySearchInAllEnviornments()[pri:20, instance:tutorialsninja.tests.Search@5149d738]" started-at="2024-12-30T16:16:06 IST" name="verifySearchInAllEnviornments" finished-at="2024-12-30T16:16:07 IST" duration-ms="1013" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verifySearchFunctionalityUsageByUsingKeyboardKeys -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:tutorialsninja.tests.Search@19e4653c]" started-at="2024-12-28T18:41:36 IST" name="tearDown" finished-at="2024-12-28T18:41:37 IST" duration-ms="387" status="PASS">
+        </test-method> <!-- verifySearchInAllEnviornments -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:tutorialsninja.tests.Search@5149d738]" started-at="2024-12-30T16:16:07 IST" name="tearDown" finished-at="2024-12-30T16:16:08 IST" duration-ms="1385" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->

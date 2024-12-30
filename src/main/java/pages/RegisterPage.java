@@ -114,13 +114,6 @@ public class RegisterPage extends RootPage {
 
 	private By xOptionPrivacyPolicy = By.xpath("//button[text()='×']");
 
-	@FindBy(xpath = "//div[@id='content']/h1")
-	private WebElement registerPageHeading;
-
-	public String getRegisterPageHeading() {
-		return elementUtils.getTextOfElement(registerPageHeading);
-	}
-
 	public boolean waitAndCheckDisplayStatusOfClosePrivacyPolicyOption(WebDriver driver, int seconds) {
 		return elementUtils.isElementDisplayedAfterWaiting(xOptionPrivacyPolicy,seconds);
 	}

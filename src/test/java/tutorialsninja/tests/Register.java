@@ -1,16 +1,37 @@
 package tutorialsninja.tests;
 
-import java.io.*;
-import java.sql.*;
-import java.util.*;
-import javax.mail.*;
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.HashMap;
+import java.util.Properties;
+
+import javax.mail.Flags;
+import javax.mail.Folder;
+import javax.mail.Message;
+import javax.mail.Session;
+import javax.mail.Store;
 import javax.mail.search.FlagTerm;
-import org.openqa.selenium.*;
+
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
-import org.testng.annotations.*;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
-import pages.*;
+
+import pages.AccountSuccessPage;
+import pages.FooterOptions;
+import pages.HeaderOptions;
+import pages.LandingPage;
+import pages.RegisterPage;
+import pages.RightColumnOptions;
 import tutorialsninja.base.Base;
 import utils.CommonUtils;
 import utils.MyXLSReader;
@@ -19,7 +40,7 @@ public class Register extends Base {
 
 	public WebDriver driver;
 	Properties prop;
-	
+
 	@BeforeMethod
 	public void setup() {
 
@@ -149,7 +170,7 @@ public class Register extends Base {
 			e.printStackTrace();
 			b = false;
 		}
-		
+
 		Assert.assertTrue(b);
 	}
 
@@ -536,14 +557,14 @@ public class Register extends Base {
 			Assert.assertEquals(registerPage.getEmailWarning(), emailWarning);
 			Assert.assertEquals(registerPage.getTelephoneWarning(), telephoneWarning);
 			Assert.assertEquals(registerPage.getPasswordWarning(), passwordWarning);
-		}else if(prop.getProperty("browserName").equals("firefox")) {
-			Assert.assertEquals(registerPage.getEmailValidationMessage(),"Please enter an email address.");
+		} else if (prop.getProperty("browserName").equals("firefox")) {
+			Assert.assertEquals(registerPage.getEmailValidationMessage(), "Please enter an email address.");
 		}
 
 	}
 
 	@Test(priority = 17, dataProvider = "passwordSupplier")
-	public void verifyRegisteringAccountAndCheckingPasswordComplexityStandards(HashMap<String,String> hMap) {
+	public void verifyRegisteringAccountAndCheckingPasswordComplexityStandards(HashMap<String, String> hMap) {
 
 		registerPage.enterFirstName(prop.getProperty("firstName"));
 		registerPage.enterLastName(prop.getProperty("lastName"));
@@ -575,8 +596,8 @@ public class Register extends Base {
 
 	@DataProvider(name = "passwordSupplier")
 	public Object[][] supplyPasswords() {
-		myXLSReader = new MyXLSReader(System.getProperty("user.dir")+"\\src\\test\\resources\\TutorialsNinja.xlsx");
-		Object[][] data = CommonUtils.getTestData(myXLSReader,"RegsiterTestSupplyPasswords","data");
+		myXLSReader = new MyXLSReader(System.getProperty("user.dir") + "\\src\\test\\resources\\TutorialsNinja.xlsx");
+		Object[][] data = CommonUtils.getTestData(myXLSReader, "RegsiterTestSupplyPasswords", "data");
 		return data;
 	}
 
@@ -814,17 +835,14 @@ public class Register extends Base {
 		driver = navigateToRegisterPage(driver, prop.getProperty("registerPageURL"));
 		driver = CommonUtils.takeScreenshot(driver, "\\Screenshots\\registerPageActualAligment.png");
 		if (browserName.equals("chrome")) {
-			Assert.assertFalse(CommonUtils.compareTwoScreenshots(
-					System.getProperty("user.dir") + "\\Screenshots\\registerPageActualAligment.png",
-					System.getProperty("user.dir") + "\\Screenshots\\registerPageChromeExpectedAligment.png"));
+			Assert.assertFalse(CommonUtils.compareTwoScreenshots("\\Screenshots\\registerPageActualAligment.png",
+					"\\Screenshots\\registerPageChromeExpectedAligment.png"));
 		} else if (browserName.equals("firefox")) {
-			Assert.assertFalse(CommonUtils.compareTwoScreenshots(
-					System.getProperty("user.dir") + "\\Screenshots\\registerPageActualAligment.png",
-					System.getProperty("user.dir") + "\\Screenshots\\registerPageFirefoxExpectedAligment.png"));
+			Assert.assertFalse(CommonUtils.compareTwoScreenshots("\\Screenshots\\registerPageActualAligment.png",
+					"\\Screenshots\\registerPageFirefoxExpectedAligment.png"));
 		} else if (browserName.equals("edge")) {
-			Assert.assertFalse(CommonUtils.compareTwoScreenshots(
-					System.getProperty("user.dir") + "\\Screenshots\\registerPageActualAligment.png",
-					System.getProperty("user.dir") + "\\Screenshots\\registerPageEdgeExpectedAligment.png"));
+			Assert.assertFalse(CommonUtils.compareTwoScreenshots("\\Screenshots\\registerPageActualAligment.png",
+					"\\Screenshots\\registerPageEdgeExpectedAligment.png"));
 		}
 	}
 
@@ -845,8 +863,8 @@ public class Register extends Base {
 		registerPage.enterConfirmPassword(prop.getProperty("validPassword"));
 		registerPage.selectPrivacyPolicy();
 		accountSuccessPage = registerPage.clickOnContinueButton();
-	
-		if(prop.getProperty("browserName").equals("chrome") || prop.getProperty("browserName").equals("edge")) {
+
+		if (prop.getProperty("browserName").equals("chrome") || prop.getProperty("browserName").equals("edge")) {
 			accountPage = accountSuccessPage.clickOnContinueButton();
 			editAccountInformationPage = accountPage.clickOnEditYourAccountInformationOption();
 			softAssert.assertEquals(editAccountInformationPage.getFirstNameFieldValue(), enteredFirstName.trim());
@@ -854,7 +872,7 @@ public class Register extends Base {
 			softAssert.assertEquals(editAccountInformationPage.getEmailFieldValue(), enteredEmail.trim());
 			softAssert.assertEquals(editAccountInformationPage.getTelephoneFieldValue(), enteredTelphone.trim());
 			softAssert.assertAll();
-		}else if(prop.getProperty("browserName").equals("firefox")) {
+		} else if (prop.getProperty("browserName").equals("firefox")) {
 			Assert.assertEquals(registerPage.getEmailValidationMessage(), "Please enter an email address.");
 		}
 	}
@@ -1149,7 +1167,7 @@ public class Register extends Base {
 	public void verifyBreadcrumbURLHeadingTitleOfRegisterAccountPage() {
 
 		Assert.assertTrue(registerPage.didWeNavigateToRegisterAccountPage());
-		Assert.assertEquals(registerPage.getRegisterPageHeading(), prop.getProperty("registerPageHeading"));
+		Assert.assertEquals(registerPage.getPageHeading(), prop.getProperty("registerPageHeading"));
 		Assert.assertEquals(getPageURL(driver), prop.getProperty("registerPageURL"));
 		Assert.assertEquals(getPageTitle(driver), prop.getProperty("registerPageTitle"));
 
@@ -1159,24 +1177,20 @@ public class Register extends Base {
 	public void verifyUIOfRegisterAccountPage() {
 
 		// https://drive.google.com/file/d/1X6EPJW-Ojl3Xpv99qrnOV4wU8FuekmtO/view
-        
-		if(prop.getProperty("browserName").equals("chrome")) {
+
+		if (prop.getProperty("browserName").equals("chrome")) {
 			CommonUtils.takeScreenshot(driver, "\\Screenshots\\actualRegisterPageUI.png");
-			Assert.assertFalse(CommonUtils.compareTwoScreenshots(
-					System.getProperty("user.dir") + "\\Screenshots\\actualRegisterPageUI.png",
-					System.getProperty("user.dir") + "\\Screenshots\\expectedRegisterPageUI.png"));
-		}else if(prop.getProperty("browserName").equals("edge")) {
+			Assert.assertFalse(CommonUtils.compareTwoScreenshots("\\Screenshots\\actualRegisterPageUI.png",
+					"\\Screenshots\\expectedRegisterPageUI.png"));
+		} else if (prop.getProperty("browserName").equals("edge")) {
 			CommonUtils.takeScreenshot(driver, "\\Screenshots\\actualEdgeRegisterPageUI.png");
-			Assert.assertFalse(CommonUtils.compareTwoScreenshots(
-					System.getProperty("user.dir") + "\\Screenshots\\actualEdgeRegisterPageUI.png",
-					System.getProperty("user.dir") + "\\Screenshots\\expectedEdgeRegisterPageUI.png"));
-		}else if(prop.getProperty("browserName").equals("firefox")) {
+			Assert.assertFalse(CommonUtils.compareTwoScreenshots("\\Screenshots\\actualEdgeRegisterPageUI.png",
+					"\\Screenshots\\expectedEdgeRegisterPageUI.png"));
+		} else if (prop.getProperty("browserName").equals("firefox")) {
 			CommonUtils.takeScreenshot(driver, "\\Screenshots\\actualFirefoxRegisterPageUI.png");
-			Assert.assertFalse(CommonUtils.compareTwoScreenshots(
-					System.getProperty("user.dir") + "\\Screenshots\\actualFirefoxRegisterPageUI.png",
-					System.getProperty("user.dir") + "\\\\Screenshots\\\\expectedFirefoxRegisterPageUI.png"));
+			Assert.assertFalse(CommonUtils.compareTwoScreenshots("\\Screenshots\\actualFirefoxRegisterPageUI.png",
+					"\\Screenshots\\expectedFirefoxRegisterPageUI.png"));
 		}
-		
 
 	}
 

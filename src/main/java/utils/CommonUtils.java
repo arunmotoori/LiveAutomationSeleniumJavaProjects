@@ -37,8 +37,8 @@ public class CommonUtils {
 		BufferedImage acutualBImg = null;
 		BufferedImage expectedBImg = null;
 		try {
-			acutualBImg = ImageIO.read(new File(actualImagePath));
-			expectedBImg = ImageIO.read(new File(expectedImagePath));
+			acutualBImg = ImageIO.read(new File(System.getProperty("user.dir")+actualImagePath));
+			expectedBImg = ImageIO.read(new File(System.getProperty("user.dir")+expectedImagePath));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

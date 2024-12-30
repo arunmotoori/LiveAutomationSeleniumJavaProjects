@@ -96,7 +96,6 @@ public class Login extends Base {
 	@Test(priority = 7)
 	public void verifyLoggingIntoTheApplicationUsingKeyboardKeys() throws InterruptedException {
 
-		
 		driver = landingPage.pressKeyMultipleTimes(driver, Keys.TAB, 23);
 		driver = enterDetailsIntoLoginPageFields(driver);
 		accountPage = new AccountPage(driver);
@@ -189,7 +188,7 @@ public class Login extends Base {
 
 		String passwordText = prop.getProperty("samplePassword");
 		loginPage.enterPassword(passwordText);
-	    loginPage.selectPasswordFieldTextAndCopy();
+		loginPage.selectPasswordFieldTextAndCopy();
 		loginPage.pasteCopiedPasswordTextIntoEmailField();
 		Assert.assertNotEquals(loginPage.getTextCopiedIntoEmailField(), passwordText);
 
@@ -493,22 +492,19 @@ public class Login extends Base {
 
 		if (prop.getProperty("browserName").equals("chrome")) {
 			CommonUtils.takeScreenshot(driver, "\\Screenshots\\actualLoginPageUI.png");
-			Assert.assertFalse(CommonUtils.compareTwoScreenshots(
-					System.getProperty("user.dir") + "\\Screenshots\\actualLoginPageUI.png",
-					System.getProperty("user.dir") + "\\Screenshots\\expectedLoginPageUI.png"));
+			Assert.assertFalse(CommonUtils.compareTwoScreenshots("\\Screenshots\\actualLoginPageUI.png",
+					"\\Screenshots\\expectedLoginPageUI.png"));
 
-		}else if(prop.getProperty("browserName").equals("edge")) {
+		} else if (prop.getProperty("browserName").equals("edge")) {
 			CommonUtils.takeScreenshot(driver, "\\Screenshots\\actualEdgeLoginPageUI.png");
-			Assert.assertFalse(CommonUtils.compareTwoScreenshots(
-					System.getProperty("user.dir") + "\\Screenshots\\actualEdgeLoginPageUI.png",
-					System.getProperty("user.dir") + "\\Screenshots\\expectedEdgeLoginPageUI.png"));
-			
-		}else if(prop.getProperty("browserName").equals("firefox")) {
+			Assert.assertFalse(CommonUtils.compareTwoScreenshots("\\Screenshots\\actualEdgeLoginPageUI.png",
+					"\\Screenshots\\expectedEdgeLoginPageUI.png"));
+
+		} else if (prop.getProperty("browserName").equals("firefox")) {
 			CommonUtils.takeScreenshot(driver, "\\Screenshots\\actualFirefoxLoginPageUI.png");
-			Assert.assertFalse(CommonUtils.compareTwoScreenshots(
-					System.getProperty("user.dir") + "\\Screenshots\\actualFirefoxLoginPageUI.png",
-					System.getProperty("user.dir") + "\\Screenshots\\expectedFirefoxLoginPageUI.png"));
-			
+			Assert.assertFalse(CommonUtils.compareTwoScreenshots("\\Screenshots\\actualFirefoxLoginPageUI.png",
+					"\\Screenshots\\expectedFirefoxLoginPageUI.png"));
+
 		}
 	}
 

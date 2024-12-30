@@ -28,13 +28,6 @@ public class AccountLogoutPage extends RootPage {
 	@FindBy(xpath = "//a[@class='btn btn-primary'][text()='Continue']")
 	private WebElement continueButton;
 
-	@FindBy(xpath = "//div[@id='content']/h1")
-	private WebElement pageHeading;
-
-	public String getPageHeading() {
-		return elementUtils.getTextOfElement(pageHeading);
-	}
-
 	public LandingPage clickOnContinueButton() {
 		elementUtils.clickOnElement(continueButton);
 		return new LandingPage(driver);

@@ -136,24 +136,24 @@ public class Logout extends Base {
 		headerOptions.clickOnMyAccountDropMenu();
 		if(prop.getProperty("browserName").equals("firefox")) {
 			CommonUtils.takeScreenshot(headerOptions.getDriver(),"\\Screenshots\\actualFirefoxLogoutOption.png");
-			Assert.assertFalse(CommonUtils.compareTwoScreenshots(System.getProperty("user.dir")+"\\Screenshots\\actualFirefoxLogoutOption.png",System.getProperty("user.dir")+"\\Screenshots\\expectedFirefoxLogoutOption.png"));
+			Assert.assertFalse(CommonUtils.compareTwoScreenshots("\\Screenshots\\actualFirefoxLogoutOption.png",System.getProperty("user.dir")+"\\Screenshots\\expectedFirefoxLogoutOption.png"));
 		}else if(prop.getProperty("browserName").equals("chrome")) {
 			CommonUtils.takeScreenshot(headerOptions.getDriver(),"\\Screenshots\\actualChromeLogoutOption.png");
-			Assert.assertFalse(CommonUtils.compareTwoScreenshots(System.getProperty("user.dir")+"\\Screenshots\\actualChromeLogoutOption.png",System.getProperty("user.dir")+"\\Screenshots\\expectedChromeLogoutOption.png"));
+			Assert.assertFalse(CommonUtils.compareTwoScreenshots("\\Screenshots\\actualChromeLogoutOption.png",System.getProperty("user.dir")+"\\Screenshots\\expectedChromeLogoutOption.png"));
 		}else if(prop.getProperty("browserName").equals("edge")) {
 			CommonUtils.takeScreenshot(headerOptions.getDriver(),"\\Screenshots\\actualEdgeLogoutOption.png");
-			Assert.assertFalse(CommonUtils.compareTwoScreenshots(System.getProperty("user.dir")+"\\Screenshots\\actualEdgeLogoutOption.png",System.getProperty("user.dir")+"\\Screenshots\\expectedEdgeLogoutOption.png"));
+			Assert.assertFalse(CommonUtils.compareTwoScreenshots("\\Screenshots\\actualEdgeLogoutOption.png",System.getProperty("user.dir")+"\\Screenshots\\expectedEdgeLogoutOption.png"));
 		}
 		accountLogoutPage = headerOptions.selectLogoutOption();
 		if(prop.getProperty("browserName").equals("firefox")) {
 			CommonUtils.takeScreenshot(headerOptions.getDriver(),"\\Screenshots\\actualFirefoxAccountLogoutPage.png");
-			Assert.assertFalse(CommonUtils.compareTwoScreenshots(System.getProperty("user.dir")+"\\Screenshots\\actualFirefoxAccountLogoutPage.png",System.getProperty("user.dir")+"\\Screenshots\\expectedFirefoxAccountLogoutPage.png"));
+			Assert.assertFalse(CommonUtils.compareTwoScreenshots("\\Screenshots\\actualFirefoxAccountLogoutPage.png",System.getProperty("user.dir")+"\\Screenshots\\expectedFirefoxAccountLogoutPage.png"));
 		}else if(prop.getProperty("browserName").equals("chrome")) {
 			CommonUtils.takeScreenshot(headerOptions.getDriver(),"\\Screenshots\\actualChromeAccountLogoutPage.png");
-			Assert.assertFalse(CommonUtils.compareTwoScreenshots(System.getProperty("user.dir")+"\\Screenshots\\actualChromeAccountLogoutPage.png",System.getProperty("user.dir")+"\\Screenshots\\expectedChromeAccountLogoutPage.png"));
+			Assert.assertFalse(CommonUtils.compareTwoScreenshots("\\Screenshots\\actualChromeAccountLogoutPage.png",System.getProperty("user.dir")+"\\Screenshots\\expectedChromeAccountLogoutPage.png"));
 		}else if(prop.getProperty("browserName").equals("edge")) {
 			CommonUtils.takeScreenshot(headerOptions.getDriver(),"\\Screenshots\\actualEdgeAccountLogoutPage.png");
-			Assert.assertFalse(CommonUtils.compareTwoScreenshots(System.getProperty("user.dir")+"\\Screenshots\\actualEdgeAccountLogoutPage.png",System.getProperty("user.dir")+"\\Screenshots\\expectedEdgeAccountLogoutPage.png"));
+			Assert.assertFalse(CommonUtils.compareTwoScreenshots("\\Screenshots\\actualEdgeAccountLogoutPage.png",System.getProperty("user.dir")+"\\Screenshots\\expectedEdgeAccountLogoutPage.png"));
 		}
 		
 	}

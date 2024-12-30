@@ -50,7 +50,7 @@
               <ul>
                 <li>
                   <a href="#" panel-name="test-xml-Default_suite" class="navigator-link ">
-                    <span>C:\Users\arunm\AppData\Local\Temp\testng-eclipse--960295712\testng-customsuite.xml</span>
+                    <span>C:\Users\arunm\AppData\Local\Temp\testng-eclipse-65232061\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -103,7 +103,7 @@
                     <div class="method-list-content passed suite-Default_suite">
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="tutorialsninja.tests.Search" class="method navigator-link" hash-for-method="verifySearchFunctionalityUsageByUsingKeyboardKeys">verifySearchFunctionalityUsageByUsingKeyboardKeys</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="tutorialsninja.tests.Search" class="method navigator-link" hash-for-method="verifySearchInAllEnviornments">verifySearchInAllEnviornments</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Default_suite -->
@@ -126,9 +126,9 @@
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="verifySearchFunctionalityUsageByUsingKeyboardKeys">
-                  </a> <!-- verifySearchFunctionalityUsageByUsingKeyboardKeys -->
-                  <span class="method-name">verifySearchFunctionalityUsageByUsingKeyboardKeys</span>
+                  <a name="verifySearchInAllEnviornments">
+                  </a> <!-- verifySearchInAllEnviornments -->
+                  <span class="method-name">verifySearchInAllEnviornments</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -136,7 +136,7 @@
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\arunm\AppData\Local\Temp\testng-eclipse--960295712\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\arunm\AppData\Local\Temp\testng-eclipse-65232061\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -147,7 +147,7 @@
     &lt;classes&gt;
       &lt;class name=&quot;tutorialsninja.tests.Search&quot;&gt;
         &lt;methods&gt;
-          &lt;include name=&quot;verifySearchFunctionalityUsageByUsingKeyboardKeys&quot;/&gt;
+          &lt;include name=&quot;verifySearchInAllEnviornments&quot;/&gt;
         &lt;/methods&gt;
       &lt;/class&gt; &lt;!-- tutorialsninja.tests.Search --&gt;
     &lt;/classes&gt;
@@ -191,14 +191,14 @@ data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
 data.addRows(1);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'verifySearchFunctionalityUsageByUsingKeyboardKeys')
+data.setCell(0, 1, 'verifySearchInAllEnviornments')
 data.setCell(0, 2, 'tutorialsninja.tests.Search')
-data.setCell(0, 3, 17988);
+data.setCell(0, 3, 1013);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 17 seconds</span>
+              <span class="suite-total-time">Total running time: 1 seconds</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -213,43 +213,49 @@ return data;
         </div> <!-- panel -->
         <div panel-name="ignored-methods-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">16 ignored methods</span>
+            <span class="header-content">19 ignored methods</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="ignored-class-div">
               <span class="ignored-class-name">tutorialsninja.tests.Search</span>
               <div class="ignored-methods-div">
-                <span class="ignored-method-name">verifyNavigatingToSearchPageFromSiteMapPage</span>
+                <span class="ignored-method-name">verifySearchWithValidProduct</span>
+                <br/>
+                <span class="ignored-method-name">verifySearchWithNonExistingProduct</span>
+                <br/>
+                <span class="ignored-method-name">verifySearchFunctionalityHeadingURLAndTitle</span>
                 <br/>
                 <span class="ignored-method-name">verifySearchResultingInMultipleProducts</span>
                 <br/>
-                <span class="ignored-method-name">verifySearchBySelectingSubCategory</span>
+                <span class="ignored-method-name">verifySearchByUsingParentCategoryAndSearchInSubCategoriesOption</span>
+                <br/>
+                <span class="ignored-method-name">verifySearchingForProductUsingSearchCriteriaField</span>
+                <br/>
+                <span class="ignored-method-name">verifyProductInSearchResultsInListViewAndGridView</span>
                 <br/>
                 <span class="ignored-method-name">verifySearchPageBreadcrumb</span>
+                <br/>
+                <span class="ignored-method-name">verifySortingProductsInSearchResultsPage</span>
+                <br/>
+                <span class="ignored-method-name">verifyMultipleProductsInSearchResultsInListViewAndGridView</span>
                 <br/>
                 <span class="ignored-method-name">verifySearchFieldsPlaceholders</span>
                 <br/>
                 <span class="ignored-method-name">verifySearchAfterLogin</span>
                 <br/>
-                <span class="ignored-method-name">verifyProductInSearchResultsInListViewAndGridView</span>
-                <br/>
-                <span class="ignored-method-name">verifySearchingForProductUsingSearchCriteriaField</span>
-                <br/>
-                <span class="ignored-method-name">verifySearchByUsingParentCategoryAndSearchInSubCategoriesOption</span>
-                <br/>
-                <span class="ignored-method-name">verifySearchWithValidProduct</span>
-                <br/>
-                <span class="ignored-method-name">verifyMultipleProductsInSearchResultsInListViewAndGridView</span>
-                <br/>
-                <span class="ignored-method-name">verifySortingProductsInSearchResultsPage</span>
-                <br/>
-                <span class="ignored-method-name">verifySearchWithNonExistingProduct</span>
+                <span class="ignored-method-name">verifySearchBySelectingSubCategory</span>
                 <br/>
                 <span class="ignored-method-name">verifySearchingForProductUsingSomeTextInProductDescription</span>
                 <br/>
                 <span class="ignored-method-name">verifyNavigationToProductComparePage</span>
                 <br/>
                 <span class="ignored-method-name">verifySearchWithoutEnteringAnyProduct</span>
+                <br/>
+                <span class="ignored-method-name">verifyNavigatingToSearchPageFromSiteMapPage</span>
+                <br/>
+                <span class="ignored-method-name">verifySearchFunctionalityUsageByUsingKeyboardKeys</span>
+                <br/>
+                <span class="ignored-method-name">verifySearchFunctionalityUI</span>
                 <br/>
               </div> <!-- ignored-methods-div -->
             </div> <!-- ignored-class-div -->
@@ -267,12 +273,12 @@ return data;
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
-                <span class="method-name">verifySearchFunctionalityUsageByUsingKeyboardKeys</span>
-                <span class="method-start">3994 ms</span>
+                <span class="method-name">verifySearchInAllEnviornments</span>
+                <span class="method-start">4717 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">tearDown</span>
-                <span class="method-start">22001 ms</span>
+                <span class="method-start">5735 ms</span>
               </div> <!-- configuration-method after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
